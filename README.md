@@ -7,7 +7,7 @@ An explicit Hilbert-Pólya construction for GRH with worked examples and a compl
 
 A full computational implementation of the ${7,3}$-hyperbolic kagome lattice via motif scaffolding with RFdiffusion3 *de novo* design, RosettaFold-3 structure validation, and ωB97M-V/def2-TZVPD quantum accuracy extra-long QM/MM-simulation trajectory validations utilizing the [UMA MLIP](https://github.com/amelie-iska/fairchem) (Machine Learning Interatomic Potential), and generative AI based DFT-accurate local qubit electron densities, are all coming soon. 
 
-## Description of Biologics-based QPU Design Methodology 
+## Description of Biologics-based QPU Design Methodology (Codebase Coming Soon)
 
 1. Run RFdiffusion3 motif scaffolding on [1TJB](https://www.rcsb.org/structure/1TJB) as the [${7,3}$-hyperbolic kagome lattice](https://arxiv.org/abs/1802.09549) qubits, with several hundred to several thousand qubits
 2. Run Fine-tune LigandMPNN model [ThermoGFN-IF](https://github.com/amelie-iska/ThermoGFN-IF) (once trained) to design *de novo* sequences for the inter-qubit residue spans composing the scaffold in order to increase absolute thermostability (ΔG) and computational operating temperatures to over 50 K, making NMR-based quantum computing viable
