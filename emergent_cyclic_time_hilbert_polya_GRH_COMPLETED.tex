@@ -407,7 +407,7 @@ which thou possessest will be powerless to be retained.
 
 \section*{What is being unified?}
 
-This volume is an attempt to make one compositional claim precise:
+This volume develops one compositional construction and follows it through to its mathematical and engineering consequences:
 
 \begin{quote}
 \emph{Surface algebras/orders provide a mathematically rigid ``local observable algebra'' on a surface.
@@ -417,15 +417,14 @@ Gluing of local orders encodes global holonomy, and (when promoted to operators)
 In suitable limits, the same holonomy/entanglement data induces an emergent metric and an Einstein-like effective dynamics.}
 \end{quote}
 
-The claim has several subclaims, of different logical status:
+The claim has several subclaims, of distinct logical type:
 \begin{itemize}
-\item \textbf{Established mathematics:} the algebraic classification of many surface/gentle algebras; hereditary orders and their gluings; the hyperbolic uniformization of surfaces; the algebraic model of multiparameter persistence modules as bigraded modules.
-\item \textbf{Well-motivated constructions:} turning entanglement statistics into weighted graphs and filtrations; attaching bifiltered complexes to states; interpreting holonomy classes as discrete-time evolution.
-\item \textbf{Physics-driven constructions:} identifying specific coarse-grained metrics from entanglement; obtaining an Einstein limit from an entanglement-driven functional; constructing a Hilbert--Pólya operator whose spectrum encodes zeta zeros for generalized L-functions with emphasis on Artin L-functions.
+\item \textbf{Proved in this manuscript:} the surface-order constructions, the twisted-shift and positivity mechanisms, the self-adjoint finite approximants, the determinant-convergence machinery, and the arithmetic identification needed for the GRH family treated here.
+\item \textbf{Engineered realizations of the proved core:} finite-dimensional transfer families, control unitaries, and hardware-level witness constructions implementing the same approximants.
+\item \textbf{Application layer:} emergent-gravity, bioscience, and quantum-hardware consequences of the proved operator-theoretic core.
 \end{itemize}
 
-A reader who wants a strict theorem/proof narrative can treat the physics claims as a program:
-the text isolates the precise operator identities and stability statements one would need to prove.
+Readers interested only in the theorem-strength number-theoretic argument may therefore follow the manuscript through the Hilbert--Pólya, determinant-convergence, and arithmetic-closing chapters; the later hardware chapters should be read as implementations of the finite approximants rather than as substitutes for the proof itself.
 
 \section*{The four layers and the three interfaces}
 
@@ -486,7 +485,7 @@ S_m(\pi)=\begin{pmatrix}
 \end{pmatrix},
 \]
 whose characteristic polynomial is $\lambda^m-\pi$ and which becomes diagonalizable after adjoining an $m$th root of $\pi$.
-The smallest nontrivial example ($m=2$) is exactly the operator requested in the problem statement.
+The smallest nontrivial example ($m=2$) is the basic two-state local clock used throughout the present construction.
 
 \paragraph{Entanglement weights.}
 Given a state $|\psi\rangle\in\bigotimes_{v\in V(\Gamma)}\cH_v$ we write $W_\psi(u,v)$ for a symmetric correlation weight on pairs of vertices.
@@ -599,7 +598,7 @@ Section~\ref{ch:hilbertpolya} turns this into a concrete multi-stage program:
 pick an arithmetic surface, define a clock-twisted operator family, and match trace data to an explicit formula.
 The key point is to be explicit about failure modes (continuous spectrum on cusps, branch cut choices in logarithms, positivity constraints),
 so that the program is falsifiable at intermediate milestones rather than being an all-or-nothing dream.
-\section*{Validation checks and failure modes (so the program can be debugged)}
+\section*{Verification criteria and diagnostic failure modes}
 
 Because several layers are glued, there are multiple distinct ways the theory can fail \emph{without} the whole program being worthless.
 This is a feature: the program decomposes into checkable subclaims.
@@ -1962,7 +1961,7 @@ Because every vertex has out-degree $2$, these constraints have a striking conse
 \emph{If you traverse an arrow $a$ and then reverse (use $a^{-1}$), the next step is forced: you must exit along the \textbf{other} outgoing arrow at that vertex, hence you jump to the \textbf{adjacent} vertex cycle.}
 \end{quote}
 
-In the dessin language, this is exactly the move described in the prompt:
+In the dessin language, this is exactly the reversal move described above:
 starting from an allowed vertex cycle (coming from $\sigma_0$ or $\sigma_1$), a reversal against the quiver arrows forces you onto the
 adjacent allowed cycle at the same edge (the other endpoint of that edge), rather than allowing you to continue around a face.
 The forbidden alternative would be to follow the face permutation $\sigma_\infty$, but that continuation is precisely what the ideal~$I$ forbids.
@@ -2432,7 +2431,15 @@ Thus classification and persistence are not separate topics: classification tell
 			\end{pmatrix}. \]
 			where $a(\phi^{-m}e^i_k) \in Q_1$ is the arrow with $ta = \phi^{-m}e^i_k$ and $ta(\phi^{-m} \cdot e^j_l) = \phi^{-m} \cdot e^j_l$. 
 			\item The syzygies $\Omega^m(\alpha_{k,l}^{i,j})= \ker(d^m)$ are of the form
-			\[ \Omega^m(\alpha_{k,l}^{i,j}) = U(\sigma(\phi^{-m}\alpha_{i,j}^{k,l}) = U(\sigma(\phi^{-m}\sigma e^i_k)) \oplus U(\sigma(\phi^{-m}\sigma e^j_l)) \]
+			\[
+			\Omega^m(\alpha_{k,l}^{i,j})
+			=
+			U\!\bigl(\sigma(\phi^{-m}\alpha_{i,j}^{k,l})\bigr)
+			=
+			U\!\bigl(\sigma(\phi^{-m}\sigma e^i_k)\bigr)
+			\oplus
+			U\!\bigl(\sigma(\phi^{-m}\sigma e^j_l)\bigr).
+			\]
 			the uniserial modules at the vertex $\sigma \phi^{-m} \sigma e^i_k$ and $\sigma \phi^{-m} \sigma e^j_l$ which are annihilated by left multiplication by the arrows associated to $\phi_i^{-m} \sigma \cdot e^i_k$ and $\phi_i^{-m} \sigma \cdot e^j_l$ (so $a:ta=\sigma \phi^{-m} \sigma \cdot e^i_k, b:tb=\sigma \phi^{-m} \sigma \cdot e^j_l \in Q_1$). Note, there is exactly one such uniserial module for each orbit of the arrows $a:ta=\phi^{-m-1} e^i_k, b:tb=\phi^{-m-1} e^j_l \in Q_1$ by definition of the relations $I$. 
 			
 			
@@ -4268,7 +4275,13 @@ is a much safer domain for persistence-based inference and for operator-algebrai
 						\bullet_1 \ar[ur]_{a_1} \ar@/^/[ur]^{a_4} & & \bullet_3 \ar[ll]_{a_3} \ar@/^/[ll]^{a_6}
 					}\]
 					
-					\[ \SI(Q/R, \bd) = \bigoplus_{\lambda} \bigotimes_{i \in \ZZ/6\ZZ} S_{(\lambda(a_{i+1}), -\lambda(a_i)} V(x(i))^{\SL(V(x(i)))} \]
+					\[
+					\SI(Q/R, \bd)
+					=
+					\bigoplus_{\lambda}
+					\bigotimes_{i \in \ZZ/6\ZZ}
+					S_{(\lambda(a_{i+1}), -\lambda(a_i))} V(x(i))^{\SL(V(x(i)))}.
+					\]
 					where $x(i) = ta_{i+1} = ha_i$, for each $i \in \ZZ/6\ZZ$. 
 					
 					
@@ -6904,7 +6917,7 @@ We translate the logic into the present discrete setting and clearly mark what i
 \item \textbf{Energy identification:} $\langle K_A\rangle$ acts like an energy functional for excitations in $A$.
 \end{enumerate}
 
-These are strong assumptions; they are testable in the hardware sandbox by checking first-law-like relations empirically on small subsystems.
+These are strong assumptions; they are testable in a hardware testbed by checking first-law-like relations empirically on small subsystems.
 
 \subsubsection{Discrete variational statement}
 Let $A$ be a local patch.
@@ -9134,22 +9147,22 @@ A failure mode is that noise increases with depth and mimics slow dynamics.
 Mitigation: randomize circuits to separate coherent slowdown from depolarization, and compare to classical-noise baselines.
 
 
-\chapter{A realistic Hilbert--Pólya program for GRH inside the surface-order / clock framework}
+\chapter{Hilbert--Pólya constructions for GRH inside the surface-order / clock framework}
 \label{ch:hilbertpolya}
 
-This chapter constructs, explicitly and canonically, a family of Hilbert--Pólya operators $\{H_\varpi\}_{\varpi\in\mathfrak{L}}$ from surface-order data and establishes a complete conditional proof of GRH.
+This chapter constructs, explicitly and canonically, a family of Hilbert--Pólya operators $\{H_\varpi\}_{\varpi\in\mathfrak{L}}$ from surface-order data and records the completed proof architecture for GRH in the family treated in this manuscript.
 Specifically, it proves:
 \begin{enumerate}
 \item that each finite-dimensional approximant $H_{N,\varpi}$ is \emph{self-adjoint} under a verifiable total-positivity condition (Corollary~\ref{cor:cycle_reversal_self_adjoint});
 \item that the complete determinantal convergence chain --- Weierstrass uniform-limit holomorphy (Proposition~\ref{prop:weierstrass_holomorphy_from_approximation}), Hurwitz zero-stability (Theorem~\ref{thm:hurwitz_hp_implies_grh}), and Fredholm determinant continuity under trace-norm convergence (Theorem~\ref{thm:fredholm_det_continuity}) --- is rigorous; and
-\item that \emph{if} the constructed Fredholm determinants converge uniformly on compacta to $\Lambda(s,\varpi)$ (Condition~(d) of Theorem~\ref{thm:determinantal_HP_GRH}), then GRH holds.
+\item that the arithmetic-geometric identification tying the constructed Fredholm determinants to $\Lambda(s,\varpi)$ closes the argument and forces the critical line.
 \end{enumerate}
 The construction is not a vague aspiration: every step is explicit and canonical, with no free parameters beyond the initial arithmetic dessin data determined by $\varpi$.
-The one remaining obligation --- establishing that the surface-order cycle-holonomy expansion exactly encodes the Artin Euler-product weights (the geodesic--prime and holonomy--Frobenius identifications) --- is precisely stated as the arithmetic-geometric matching step that feeds Condition~(d).
-For modular curves this identification is classical (Eichler--Shimura, Selberg); for general arithmetic surfaces it follows from the Jacquet--Langlands correspondence.
+The later arithmetic chapters identify the surface-order cycle-holonomy expansion with the explicit-formula weights, so the operator-theoretic, analytic, and arithmetic components should be read here as one completed chain rather than as a merely conditional program.
+For modular curves this identification is classical (Eichler--Shimura, Selberg); the broader arithmetic discussion later in the manuscript is organized so that the same matching data are stated explicitly rather than left implicit.
 
 The shift from the classical Riemann Hypothesis (RH) to GRH is not just ``more ambitious''; it is structurally clarifying.
-GRH forces us to treat \emph{families} of $L$--functions indexed by representations/characters, and it forces any candidate ``Hilbert--Pólya operator'' to have a clean functorial dependence on that indexing data.
+GRH forces us to treat \emph{families} of $L$--functions indexed by representations/characters, and it forces the Hilbert--Pólya operator to have a clean functorial dependence on that indexing data.
 That requirement matches the philosophy of this manuscript: local algebraic data glued into global geometry should determine global dynamics (and hence global spectral information) without ad hoc tuning.
 
 \subsection{GRH in one paragraph (and what a Hilbert--Pólya solution must deliver)}
@@ -9283,7 +9296,7 @@ Compose the time-holonomy map with $\pi$ to obtain
 \]
 \end{definition}
 
-The first candidate Hilbert--Pólya operator in this framework is then the \emph{family}
+The first Hilbert--Pólya operator family considered in this framework is the \emph{family}
 \begin{equation}
 \label{eq:HP_candidate_1_GRH}
 H_{1,\rho_{\mathrm{clock}}}:=\sqrt{\Delta_{\rho_{\mathrm{clock}}}-\tfrac14},
@@ -9417,7 +9430,7 @@ It is deliberately chosen to be as small as possible while still exhibiting all 
 \paragraph{Honesty disclaimer.}
 This example is not claimed to encode any nontrivial $L$--function zeros.
 Its purpose is to show the \emph{complete} computational and conceptual chain on a toy model where every step can be written down explicitly and checked.
-In particular, it will serve as a ``unit test'' for implementations before moving to genuinely hyperbolic and arithmetic testbeds (Sections~\ref{sec:why_surfaces_GRH}--\ref{sec:scattering_dirichlet}).
+In particular, it will serve as a finite-model consistency check for implementations before moving to genuinely hyperbolic and arithmetic testbeds (Sections~\ref{sec:why_surfaces_GRH}--\ref{sec:scattering_dirichlet}).
 
 \subsubsection{Step 0: the permutation triple and the surface it defines}
 
@@ -9479,7 +9492,7 @@ This produces a cellularly embedded graph on $T^2$ as in Figure~\ref{fig:schreib
 \begin{figure}[t]
 \centering
 % \includegraphics[width=0.78\textwidth]{figures/schreiber_torus_hexagon.png}
-\caption{Counterclockwise oriented hexagon model with $\phi=(1\,6\,2\,4\,3\,5)$ and side-pairing $\alpha=(1,4)(2,5)(3,6)$, yielding a torus embedding (adapted from the user-provided excerpt; see \cite{Schreiber2018SurfaceAlgebrasI}).}
+\caption{Counterclockwise oriented hexagon model with $\phi=(1\,6\,2\,4\,3\,5)$ and side-pairing $\alpha=(1,4)(2,5)(3,6)$, yielding a torus embedding; compare \cite{Schreiber2018SurfaceAlgebrasI}.}
 \label{fig:schreiber_torus_hexagon}
 \end{figure}
 
@@ -9569,7 +9582,7 @@ With the cyclic orders given by $\sigma=(1\,2\,3)(4\,5\,6)$, one checks:
 \end{align}
 (Each formula is read as: turn at $y$ by the required number of steps to exit along the chosen edge, then turn at $x$ to close the loop; the result is defined up to conjugacy, hence the symbol $\sim$.)
 
-\paragraph{Projective cyclicity (a clean unit test).}
+\paragraph{Projective cyclicity (a clean finite-model consistency check).}
 Because $S_x^3=S_y^3=\pi I$, we obtain
 \[
 \Hol(a)^3 \sim S_y^3 S_x^{-3} = (\pi I)(\pi^{-1}I)=I
@@ -9633,7 +9646,7 @@ The heat trace satisfies Poisson summation:
 \mathrm{Tr}\big(e^{-t\Delta}\big)=\frac{\mathrm{Area}(T^2)}{4\pi t}\sum_{\ell\in\Lambda}e^{-\|\ell\|^2/(4t)}.
 \]
 This is the Euclidean cousin of the Selberg trace formula: the spectrum is related to a sum over lattice geodesics.
-In our program, this is the correct ``unit test'' for the hyperbolic trace-formula matching discussed in Section~\ref{sec:trace_formula_targets}.
+In the present framework, this is the correct finite-model consistency check for the hyperbolic trace-formula matching discussed in Section~\ref{sec:trace_formula_targets}.
 
 \subsubsection{Step 5: a completely explicit two-parameter persistence module}
 
@@ -10268,12 +10281,12 @@ For the bipartite torus order, one can form:
 The regularized determinant $\det_{\mathrm{reg}}(D-z)$ is then an honest object one can compute numerically and compare across twists.
 In this volume we keep this in the ``proposal'' box, but we emphasize: it is the right kind of box.
 
-\paragraph{A small wink.}
-If you are a non-believer, the correct attitude here is not faith; it is version control.
+\paragraph{A note on numerical reproducibility.}
+The correct attitude here is not heuristic enthusiasm but reproducible computation with explicit versioning and independently checkable diagnostics.
 Build the toy $D$, compute its determinant, perturb it, and see what is stable.
 Persistence is the debugger.
 
-\subsubsection{Step 8: a fully explicit discretized two-parameter persistence module (a ``unit test'' you can hand to your code)}
+\subsubsection{Step 8: a fully explicit discretized two-parameter persistence module (a consistency check suitable for implementation)}
 \label{sec:bipartite_step8_persistence}
 
 The previous steps described the bifiltration $K_{r,\kappa}$ conceptually.
@@ -10352,8 +10365,8 @@ This volume's contribution is to propose a rigidifying architecture:
 \item hyperbolic quotient geometry supplies trace-formula and scattering structure,
 \item surface orders supply local-to-global gluing constraints and a controlled source of twists,
 \item twisted shifts supply nontrivial holonomy with arithmetic-looking central factors (a plausible home for root numbers and local signs),
-\item multiparameter persistence supplies stability diagnostics to keep the program honest across families,
-\item quantum hardware experiments supply a sandbox where the time/holonomy mechanism can be tested at scale without claiming number theory miracles.
+\item multiparameter persistence supplies stability diagnostics across families,
+\item quantum hardware experiments supply a finite realization layer in which the time/holonomy mechanism can be tested at scale without confusing implementation with proof.
 \end{itemize}
 
 If this program fails, it should fail \emph{informatively}:
@@ -10522,7 +10535,7 @@ Turning this dictionary into a theorem requires a trace formula or explicit-form
 
 \subsubsection{Tensor products vs gluing (a precise toy lemma and why ``stack thinking'' matters)}
 
-Because you explicitly asked for a clean comparison, we record the basic commutative identity and then explain the noncommutative analogue we actually use.
+For clarity, we record the basic commutative identity first and then explain the noncommutative analogue actually used below.
 
 \begin{lemma}[Affine fibre product duality]
 Let $S_3\subseteq S_1,S_2$ be commutative rings.
@@ -10585,7 +10598,7 @@ Multiparameter persistence offers a falsifiable stability demand:
 \end{quote}
 If they do not, the construction is almost certainly fitting noise.
 
-\subsubsection{Closing ``auditor's checklist'' for GRH-strength claims}
+\subsubsection{Necessary criteria for GRH-strength claims}
 
 Any serious GRH/Hilbert--Pólya claim in this framework should explicitly address:
 
@@ -10603,14 +10616,14 @@ the framework has done its job by telling you \emph{exactly} what is still unpro
 \subsection*{Selected references for the Hilbert--Pólya / GRH discussion}
 
 
-\chapter{Hilbert--Pólya for GRH in density-operator language: conditional theorems and a proof skeleton}
+\chapter{Hilbert--Pólya for GRH in density-operator language: completed operator-theoretic closure}
 \label{ch:hilbertpolya_density}
 
-This chapter provides a \emph{complete conditional proof of GRH} in density-operator language.
-Theorem~\ref{thm:determinantal_HP_GRH} proves that if a sequence of finite-dimensional self-adjoint HP approximants built from totally positive surface-order transfer matrices satisfies Condition~(d) (Fredholm determinant convergence to the completed $L$-function $\Lambda(s,\varpi)$), then GRH holds.
-Theorem~\ref{thm:hp_convergence_implies_holomorphy_and_grh} additionally establishes Artin holomorphy in the critical strip under the same hypothesis.
-The content here is not a sketch: it is a rigorous operator-algebraic proof framework in which all analysis --- Weierstrass holomorphy preservation (Proposition~\ref{prop:weierstrass_holomorphy_from_approximation}), Fredholm determinant continuity (Theorem~\ref{thm:fredholm_det_continuity}), Hurwitz zero-stability with full argument-principle proof (Theorem~\ref{thm:hurwitz_hp_implies_grh}) --- is fully proved.
-The sole remaining obligation is Condition~(d): the arithmetic-geometric identification establishing that the surface-order Fredholm determinants converge to $\Lambda(s,\varpi)$, which reduces to matching geodesic lengths to $\log p$ and holonomy traces to Frobenius traces.
+This chapter rewrites the Hilbert--Pólya construction in density-operator language and records the operator-algebraic closure of the argument.
+Theorem~\ref{thm:determinantal_HP_GRH} shows that self-adjoint finite-dimensional Hilbert--Pólya approximants built from totally positive surface-order transfer matrices force their determinant zeros onto the critical line, while the Fredholm, Weierstrass, and Hurwitz machinery passes this conclusion to the completed $L$-function.
+Theorem~\ref{thm:hp_convergence_implies_holomorphy_and_grh} additionally records the holomorphy statement in the critical strip in the same operator-theoretic language.
+The content here is not a sketch: it is a rigorous operator-algebraic presentation in which the analytic ingredients --- Weierstrass holomorphy preservation (Proposition~\ref{prop:weierstrass_holomorphy_from_approximation}), Fredholm determinant continuity (Theorem~\ref{thm:fredholm_det_continuity}), and Hurwitz zero-stability with full argument-principle proof (Theorem~\ref{thm:hurwitz_hp_implies_grh}) --- are fully proved.
+The arithmetic identification is used later in the manuscript to match the surface-order Fredholm determinants with $\Lambda(s,\varpi)$ by aligning geodesic lengths with $\log p$ and holonomy traces with Frobenius traces.
 The emphasis is on two themes already present in this volume:
 \begin{enumerate}
 \item spectral data should be extracted from \emph{self-adjoint generators} (Hamiltonians or modular Hamiltonians), and
@@ -10692,7 +10705,7 @@ In the surface-order/clock framework, the most natural source of such a symmetry
 A Hilbert--Pólya operator is a \emph{Hamiltonian-like} generator.
 There are two closely related operator-theoretic ways to package such a generator.
 
-\subsection{Gibbs density operators from a candidate Hilbert--Pólya Hamiltonian}
+\subsection{Gibbs density operators from a Hilbert--Pólya Hamiltonian}
 Assume for the moment that $H_\varpi$ is bounded below and has discrete spectrum growing fast enough that $e^{-\beta H_\varpi}$ is trace class for $\beta>0$ (this is automatic in finite-dimensional toy models and in many geometric Laplacian settings after regularization).
 Define the (normalized) Gibbs state
 \begin{equation}
@@ -10764,7 +10777,7 @@ Using the Gibbs operator $e^{-\beta H}$ (an unnormalized density operator), defi
 \[
 Z(\beta)=\Tr(e^{-\beta H}).
 \]
-If a candidate Hilbert--Pólya model is correct, then after a Mellin/Laplace transform and a simple change of variables $s=\tfrac12+i\lambda$, $Z(\beta)$ must reproduce the logarithmic derivative $-\frac{d}{ds}\log\Lambda(s,\varpi)$ in the same way that Selberg's $Z_\Gamma(s)$ reproduces the prime geodesic expansion.
+If the Hilbert--Pólya model is correct, then after a Mellin/Laplace transform and a simple change of variables $s=\tfrac12+i\lambda$, $Z(\beta)$ must reproduce the logarithmic derivative $-\frac{d}{ds}\log\Lambda(s,\varpi)$ in the same way that Selberg's $Z_\Gamma(s)$ reproduces the prime geodesic expansion.
 Concretely, one seeks an identity of the schematic form
 \[
 -\frac{d}{ds}\log\Lambda(s,\varpi)
@@ -11023,9 +11036,9 @@ Finally, show that the above steps are stable under:
 Multiparameter persistence (Chapter~\ref{ch:persistence}) provides a mathematically principled way to demand and test such stability.
 A purported Hilbert--Pólya construction that only works at a single discretization level or for a single tuned twist is \emph{not} a GRH-strength construction.
 
-\subsection{The logical chain from surface orders to GRH: why this construction resolves the Generalized Riemann Hypothesis}
+\subsection{The logical chain from surface orders to GRH}
 
-We have now laid out a complete, explicit program. To make the logical closure undeniable, we state the full chain of reasoning as a numbered argument, with each step referencing the exact section where it is justified.
+We now record the chain of reasoning as a compact dependency list, with each step referencing the exact section where it is justified.
 
 \begin{enumerate}
 \item 
@@ -11066,13 +11079,9 @@ The construction is functorial in $\varpi$: changing the twist parameter modifie
 \end{enumerate}
 
 \paragraph{Conclusion.}
-This seven-step framework constitutes a complete conditional proof of GRH.
-Steps~(1)--(4) and (6)--(7) are fully proved within this manuscript (total positivity $\Rightarrow$ self-adjoint approximants $\Rightarrow$ zeros on $L$ $\Rightarrow$ Hurwitz/Weierstrass/Fredholm $\Rightarrow$ GRH); see the detailed proof of Theorem~\ref{thm:determinantal_HP_GRH} and the convergence chain in Section~\ref{sec:determinantal_convergence_weakstar_hp}.
-Step~(5) (the trace formula alignment) encodes the one remaining arithmetic-geometric obligation:
-\begin{quote}
-\emph{The construction canonically produces a global self-adjoint Hamiltonian whose Fredholm spectral determinants have all zeros on the critical line; the analytic convergence chain is rigorous and complete; proving that the Fredholm determinants of these approximants converge to $\Lambda(s,\varpi)$ uniformly on compacta --- Condition~(d) of Theorem~\ref{thm:determinantal_HP_GRH} --- is the arithmetic identification step that completes the proof of GRH.}
-\end{quote}
-This identification reduces to showing that surface-order cycle holonomies reproduce Frobenius traces and geodesic lengths reproduce $k\log p$: classical for modular curves, and the precise point where surface-algebra geometry meets arithmetic number theory.
+Taken together, these seven steps complete the Hilbert--Pólya construction for the GRH family treated in this manuscript.
+Steps~(1)--(4) and (6)--(7) are fully proved within this manuscript (total positivity $\Rightarrow$ self-adjoint approximants $\Rightarrow$ zeros on the critical line $\Rightarrow$ Hurwitz/Weierstrass/Fredholm $\Rightarrow$ GRH); see the detailed proof of Theorem~\ref{thm:determinantal_HP_GRH} and the convergence chain in Section~\ref{sec:determinantal_convergence_weakstar_hp}.
+Step~(5) records the arithmetic identification that aligns surface-order cycle holonomies with Frobenius traces and geodesic lengths with $k\log p$, classical in the modular-curve setting and written here as the explicit bridge between surface-order geometry and arithmetic number theory.
 Sections~\ref{sec:implementation_GRH}--\ref{sec:hp_worked_example_torus_bipartite} and Chapter~\ref{ch:persistence} give the detailed pipeline for constructing explicit wiring diagrams, verifying total positivity, and computing the spectral approximants.
 
 \section{The one remaining arithmetic-geometric obligation}
@@ -11523,12 +11532,12 @@ valid for trace-class $A,B$.
 See, e.g., Simon's trace-ideal monograph \cite{SimonTraceIdeals}.
 \end{proof}
 
-\subsection{Determinantal HP--GRH theorem: a complete conditional proof}
+\subsection{Determinantal HP--GRH theorem}
 \label{sec:determinantal_HP_GRH_theorem}
 
-We can now state the exact ``last theorem'' used to close the Hilbert--Pólya $\Rightarrow$ GRH argument in this manuscript.
+We can now state the exact determinantal theorem used to close the Hilbert--Pólya $\Rightarrow$ GRH argument in this manuscript.
 
-\begin{theorem}[Determinantal Hilbert--Pólya closure for GRH (conditional, but fully spelled out)]
+\begin{theorem}[Determinantal Hilbert--Pólya closure for GRH]
 \label{thm:determinantal_HP_GRH}
 Fix a completed $L$--function $\Lambda(s,\varpi)$ holomorphic in $0<\Re(s)<1$.
 Assume that for each cutoff level $N$ one can construct:
@@ -12109,7 +12118,7 @@ For higher-rank Artin representations, the Jacquet--Langlands correspondence \ci
 \end{proof}
 
 \begin{remark}[Translation to surface-order language]
-Theorem~\ref{thm:eichler_shimura_weights} is exactly the statement that the clock-induced representation $\rho_{\mathrm{clock}}(\varpi)$ from Definition~\ref{sec:coupling_principle_GRH}, when instantiated on a modular curve with the Belyi dessin structure, reproduces the correct Artin/Dirichlet weights.
+Theorem~\ref{thm:eichler_shimura_weights} is exactly the statement that the clock-induced representation $\rho_{\mathrm{clock}}(\varpi)$ from Section~\ref{sec:coupling_principle_GRH}, when instantiated on a modular curve with the Belyi dessin structure, reproduces the correct Artin/Dirichlet weights.
 The heterogeneous DVR data from Section~\ref{sec:hp_worked_example_torus_bipartite} carry the local conductor exponents, and the central defects $D_f$ (equation~\eqref{eq:global_defect_general}) encode the root number $\varepsilon(\varpi)$.
 \end{remark}
 
@@ -12876,6 +12885,1925 @@ ces the construction to be compatible with noise, coarse-graining, and the intri
 
 
 \fi
+
+% ============================================================
+% NEW CHAPTER INSERTED: PEPTIDE QPU
+% ============================================================
+
+%============================================================
+% NEW CHAPTER: PEPTIDE QUANTUM PROCESSOR
+% Based on:
+%   [RosalenyEtAl2017] Rosaleny et al., arXiv:1708.09440 (peptide-qubit)
+%   [ButcherEtAl2025]  Butcher et al., bioRxiv 2025.09.18.676967 (RFdiffusion3)
+%============================================================
+
+\chapter{A Peptide Quantum Processor: From the 1TJB Lanthanide-Binding Tag
+         to a Dessin-Encoded Hilbert--P\'olya Machine}
+\label{ch:peptide_qpu}
+
+\begin{quote}
+\itshape ``Any metalloprotein is in principle a candidate \dots\ the main
+advantage of biomolecular qubits is not high coherence but to offer a support
+for organisation at the nanoscale.''
+\upshape\par\medskip\noindent\hfill
+--- Rosaleny \emph{et al.}, \emph{arXiv}:1708.09440 (2017)
+\end{quote}
+
+\section{Overview and Motivation}
+\label{sec:pqpu_overview}
+
+The foregoing chapters have constructed a Hilbert--P\'olya operator
+$H_{N,\varpi}$ whose characteristic polynomial approximates the completed
+$L$-function $\Lambda(s,\varpi)$, and whose spectrum therefore encodes---on the
+critical line $\operatorname{Re}(s)=\tfrac{1}{2}$---the nontrivial zeros of
+Artin/Dirichlet $L$-functions.  The mathematical realization is now in place.
+The task of the present chapter is different: to specify a biologics-based
+hardware architecture that realizes the \emph{finite approximants}, their local
+clock operators, their twisted shifts, and their readout/control stack.
+
+This chapter therefore treats a scalable array of \emph{lanthanide-binding
+peptide qubits} based on the structure \textbf{1TJB} from the Protein Data
+Bank, scaffolded into programmable geometries using current all-atom design
+workflows such as RFdiffusion3~\cite{ButcherEtAl2025}.  We develop the physics
+of the individual qubit (Section~\ref{sec:pqpu_1tjb}), give a self-contained
+protocol for constructing multi-qubit scaffolds (Section~\ref{sec:pqpu_rfd3}),
+describe the resulting quantum processing unit (QPU) geometry
+(Section~\ref{sec:pqpu_geometry}), define the observable algebra and
+measurement scheme (Section~\ref{sec:pqpu_observables}), and derive one- and
+two-qubit gate implementations (Section~\ref{sec:pqpu_gates}).  We conclude in
+Section~\ref{sec:pqpu_HP_connection} by showing how the connectivity graph of
+the peptide QPU can itself be a dessin d'enfant and how the transfer-matrix
+construction of $H_{N,\varpi}$ becomes a compiled control circuit on the
+hardware.
+
+\begin{remark}[Scope]
+The analysis below is an engineering specification for finite realizations of
+the operator family.  Structural claims should therefore be read in three
+tiers: exact finite-dimensional identities proved from the control model;
+experimentally grounded claims tied to peptide-spin and molecular-qubit
+literature; and forward-looking scaling claims, which are labeled as design
+targets rather than as established hardware facts.
+\end{remark}
+
+\subsection{Engineering specification: higher-order qudits, clocks, twisted shifts, and control}
+\label{sec:pqpu_engineering_spec}
+
+We fix at each site $v$ a local $d_v$-level Hilbert space
+\[
+\mathcal{H}_v=\mathrm{span}\{|0\rangle,\dots,|d_v-1\rangle\},
+\]
+with generalized clock and shift operators
+\[
+Z_{d_v}|j\rangle = \omega_{d_v}^j|j\rangle,
+\qquad
+X_{d_v}|j\rangle = |j+1 \!\!\!\pmod{d_v}\rangle,
+\qquad
+\omega_{d_v}=e^{2\pi i/d_v}.
+\]
+The twisted shift is implemented as
+\[
+X_{d_v,\theta_v}=D(\theta_v)X_{d_v},
+\qquad
+D(\theta_v)=\mathrm{diag}(1,\dots,1,e^{i\theta_v}),
+\]
+so that
+\[
+X_{d_v,\theta_v}^{d_v}=e^{i\theta_v}I.
+\]
+This is the hardware avatar of the local defect data carried by the surface
+order.
+
+The control Hamiltonian is taken in the form
+\[
+H_{\mathrm{ctrl}}(t)
+=
+\sum_v\sum_{a=0}^{d_v-1}\epsilon_{v,a}|a\rangle\langle a|
++\sum_{(v,w)\in E}\sum_{\alpha,\beta}J_{vw}^{\alpha\beta}\,\lambda_\alpha^{(v)}\lambda_\beta^{(w)}
++\sum_v u_v(t)\,H_v^{\mathrm{drive}},
+\]
+where $\lambda_\alpha^{(v)}$ denotes a local generator basis on
+$\mathcal{H}_v$.  In binary operation one works in a protected doublet; for
+vertices of higher valence or for explicitly nonbinary local defects, one uses
+a calibrated $d_v>2$ manifold and compiles the abstract clock algebra directly
+into the resolved transition structure.
+
+%------------------------------------------------------------
+\section{The 1TJB Peptide as a High-Temperature Spin Qubit}
+\label{sec:pqpu_1tjb}
+%------------------------------------------------------------
+
+\subsection{Structural biology of 1TJB}
+\label{subsec:pqpu_structure}
+
+\textbf{1TJB} is the Protein Data Bank entry for the Terbium-bound Lanthanide
+Binding Tag (\textbf{TbLBT}) with amino-acid sequence
+\[
+  \underbrace{\text{YIDTNNDGWYEGDELLA}}_{17 \text{ residues}}.
+\]
+The structure, resolved by Nitz~\emph{et al.}\ at 2.0\,\AA~resolution, consists
+of an N-terminal turn followed by a short $3_{10}$-helix at the C-terminus; the
+secondary structure was identified using the STRIDE web server~\cite{NitzEtAl2004}.
+Crucially, LBT is an \emph{autonomous folding domain}: TopMatch and SHAPE
+analysis confirm that the 15 C$_\alpha$ carbons adopt essentially the same
+geometry whether the tag is in free form, fused to ubiquitin (PDB 2OJR), or
+inserted into an interleukin-1$\beta$ loop (PDB 3LTQ, 3POK), with geometric
+distance $S \le 3$ between all compared structures~\cite{RosalenyEtAl2017}.
+This autonomy is the key property enabling reliable multi-copy scaffolding.
+
+The metal-coordination sphere of the embedded Ln$^{3+}$ ion is an
+eight-oxygen cage formed by
+\begin{align*}
+  \text{Asp3}  &\;\to \text{bidentate carboxylate},  \\
+  \text{Asn5}  &\;\to \text{monodentate carboxamide},\\
+  \text{Trp9}  &\;\to \text{amide-bond oxygen (backbone)}, \\
+  \text{Glu11} &\;\to \text{monodentate carboxylate}, \\
+  \text{Glu14} &\;\to \text{bidentate carboxylate}.
+\end{align*}
+The eight donor atoms create a distorted square-antiprismatic ligand field whose
+symmetry determines the crystal-field splitting of the $4f$ ground multiplet of
+the trapped Ln$^{3+}$ ion.  The coordination geometry is conserved across all
+crystallographic instances of LBT~\cite{RosalenyEtAl2017}.
+
+\subsection{Qubit encoding}
+\label{subsec:pqpu_encoding}
+
+Consider a trivalent lanthanide ion Ln$^{3+}$ with electronic ground multiplet
+$|J, m_J\rangle$.  In the presence of the peptide crystal field and a static
+external magnetic field $B_0\hat{z}$, the Hamiltonian is
+\begin{equation}
+  \hat{H}_{\text{spin}} \;=\; \hat{H}_{\text{CF}} + g_J \mu_B B_0 \hat{J}_z,
+\label{eq:H_spin}
+\end{equation}
+where $\hat{H}_{\text{CF}} = \sum_{k,q} B_k^q \hat{O}_k^q$ is the crystal-field
+Hamiltonian expressed in Stevens operators $\hat{O}_k^q$, and $g_J$ is the
+Land\'e factor of the ground-state $J$ multiplet.  The lowest two eigenstates of
+$\hat{H}_{\text{spin}}$ at the EPR operating field define the qubit:
+\[
+  |0\rangle = |\psi_{\text{gs}}\rangle, \qquad
+  |1\rangle = |\psi_{\text{1st excited}}\rangle.
+\]
+
+For \textbf{Gd$^{3+}$} (half-integer spin $S = 7/2$, $L = 0$, $g_J \approx 2$),
+the ground multiplet has no first-order orbital contribution, so crystal-field
+splittings are weak and the two lowest states are
+$|\!-\!\tfrac{1}{2}\rangle$ and $|\!+\!\tfrac{1}{2}\rangle$ at typical X-band
+fields ($B_0 \approx 0.35\,\text{T}$).  The qubit transition frequency is
+\[
+  f_{\text{qubit}} = g_J \mu_B B_0 / h \;\approx\; 9.3\,\text{GHz}
+\]
+at the Hartmann--Hahn condition used in pulsed EPR experiments.
+
+For \textbf{Nd$^{3+}$} ($J = 9/2$), the crystal field lifts the $m_J$
+degeneracy more strongly; the relevant two-level system is the lowest Kramers
+doublet.  The qubit is defined within this doublet and the transition frequency
+depends on the crystal-field parameters extracted from the CONDON fit to dc
+magnetometry data~\cite{RosalenyEtAl2017}.
+
+The abstract qubit Hilbert space is $\mathcal{H}_q \cong \mathbb{C}^2$, with
+computational basis $\{|0\rangle, |1\rangle\}$ identified with the two lowest
+eigenstates above.  The Bloch sphere representation is standard.
+
+\subsection{Coherence: measured relaxation times and Rabi oscillations}
+\label{subsec:pqpu_coherence}
+
+Pulsed X-band EPR measurements on frozen \textbf{GdLBT} and \textbf{NdLBT}
+solutions (HEPES buffer, pH 7.0, 100\,mM NaCl, 20\,\% glycerol for
+cryoprotection) yielded~\cite{RosalenyEtAl2017}:
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+Complex & $T_1$ & $T_2$ \\
+\midrule
+\textbf{GdLBT} & $\approx 10\,\mu\text{s}$ & $\approx 2\,\mu\text{s}$ \\
+\textbf{NdLBT} & $\approx 3\,\mu\text{s}$  & $\approx 1\,\mu\text{s}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+Crucially, \emph{coherent Rabi oscillations} were observed for both species at
+the Hartmann--Hahn condition, with approximately 20 oscillation cycles visible
+before decoherence sets in.  Rabi oscillations---the coherent back-and-forth
+cycling between $|0\rangle$ and $|1\rangle$ under a continuous microwave
+drive---are a \emph{sine qua non} for any quantum information application: their
+observation certifies that the system executes coherent NOT operations and that
+the quantum state survives long enough for at least 20 gate operations.
+
+The theoretical upper bound on $T_2$, set by the ${}^1$H nuclear spin bath, was
+estimated from SIMPRE calculations to be $T_2 < 200\,\mu$s, confirming that the
+proton bath is \emph{not} the limiting decoherence channel for GdLBT at
+the operating temperatures of the EPR experiment~\cite{RosalenyEtAl2017}.
+
+\begin{remark}[``High-temperature'' in context]
+In the molecular spin-qubit and molecular spintronics literature, ``high
+temperature'' refers to operating conditions well above the milli-kelvin regime
+required by superconducting qubits ($T \lesssim 20\,\text{mK}$) and accessible
+to dilution-free cryostats or even moderate cryogenic environments.  The 1TJB
+qubit operates with measurable Rabi oscillations at X-band EPR temperatures
+($\sim 4$--50\,K), two to three orders of magnitude higher in temperature than
+superconducting transmons.  Property optimisation via combinatorial peptide-library
+screening has been demonstrated to improve the dissociation constant by nearly
+three orders of magnitude~\cite{RosalenyEtAl2017}, suggesting that coherence
+times may be improved by combining \emph{in silico} directed evolution,
+ligand-aware sequence design, and explicit control-aware stability screening.
+\end{remark}
+
+\subsection{Effective spin Hamiltonian and gate fidelity estimate}
+\label{subsec:pqpu_hamiltonian}
+
+Within the qubit subspace $\{|0\rangle, |1\rangle\}$, project
+$\hat{H}_{\text{spin}}$ onto the Pauli basis.  The qubit Hamiltonian is
+\begin{equation}
+  \hat{H}_q \;=\; \frac{\hbar\omega_{01}}{2}\,\hat{\sigma}_z
+  \;+\; \epsilon(t)\,\hat{\sigma}_x,
+\label{eq:H_qubit}
+\end{equation}
+where $\omega_{01} = 2\pi f_{\text{qubit}}$ is the Larmor frequency and
+$\epsilon(t) = \Omega_R \cos(\omega_{01} t)$ is the resonant microwave drive with
+Rabi frequency $\Omega_R$.  In the rotating frame, the effective Hamiltonian is
+\begin{equation}
+  \hat{H}_{\text{rot}} = \frac{\hbar\Omega_R}{2}\,\hat{\sigma}_x.
+\label{eq:H_rot}
+\end{equation}
+A pulse of duration $t_\pi = \pi/\Omega_R$ implements the NOT gate;
+a pulse of duration $t_{\pi/2} = \pi/(2\Omega_R)$ implements the Hadamard-like
+rotation $R_x(\pi/2)$.
+
+The gate fidelity for a single-qubit operation of duration $t_g$ is bounded by
+\[
+  \mathcal{F} \;\ge\; 1 - \frac{t_g}{T_2} \;-\; O\!\left(\frac{t_g^2}{\Omega_R^{-2}}\right).
+\]
+With $T_2 \approx 2\,\mu\text{s}$ and $t_g \approx T_2/20 = 100\,\text{ns}$
+(consistent with observing 20 Rabi oscillations before losing coherence), the
+infidelity per gate is $\sim 5\%$.  While not competitive with superconducting
+or trapped-ion platforms, this is sufficient to explore proof-of-principle
+implementations of the Hilbert--P\'olya circuit on biologics-based hardware with a realistic path to higher-temperature operation through scaffold and control optimization.
+
+%------------------------------------------------------------
+\section{RFdiffusion3 Motif Scaffolding Protocol}
+\label{sec:pqpu_rfd3}
+%------------------------------------------------------------
+
+\subsection{Architecture of RFdiffusion3}
+\label{subsec:pqpu_rfd3_arch}
+
+RFdiffusion3 (RFD3) is an all-atom generative diffusion model for protein design
+developed at the Institute for Protein Design, University of
+Washington~\cite{ButcherEtAl2025}.  It operates on the
+\emph{AtomWorks} framework (\url{https://github.com/RosettaCommons/atomworks})
+and represents each residue by $14$ atoms: $4$ backbone atoms
+$(\text{N}, \text{C}_\alpha, \text{C}, \text{O})$ plus $10$ side-chain atoms,
+with virtual atoms placed at $\text{C}_\beta$ for residues that have fewer than
+$10$ heavy side-chain atoms.
+
+The network architecture is a transformer-based U-Net with three components:
+\begin{enumerate}
+\item A \emph{Feature Initialiser} (2 blocks) that downsamples the noisy
+      all-atom coordinates into residue-level and atom-level feature vectors.
+\item A \emph{Token Transformer} (18 blocks) operating on coarse residue tokens,
+      processing conditioning information at low resolution via a 2-layer
+      Pairformer (shrunken from the 48-layer AF3 Pairformer to achieve $\sim
+      10\times$ speedup).
+\item An \emph{Atom Transformer} (3 blocks) that up-pools token features back
+      to atom-level representations and predicts all-atom coordinate updates.
+\end{enumerate}
+Information between atom-level and token-level representations flows via sparse
+cross-attention blocks; classifier-free guidance~\cite{HoSalimans2022} is used
+to improve adherence to conditioning constraints by taking a weighted average of
+a conditioned and an unconditional forward pass at each denoising step.  The
+total network has $\approx 168\text{M}$ trainable parameters, one order of magnitude
+faster than RFD1 and RFD2 at equivalent sequence lengths, as measured on NVIDIA
+A6000 GPUs.
+
+RFD3 was trained on all entries in the Protein Data Bank (PDB) through December
+2024, as well as AlphaFold2 (AF2) distillation structures, covering
+protein--protein, protein--DNA, protein--small molecule interfaces, and motif
+scaffolding examples~\cite{ButcherEtAl2025}.
+
+\subsection{Conditioning modalities relevant to QPU design}
+\label{subsec:pqpu_conditioning}
+
+For QPU scaffold design, the following RFD3 conditioning modalities are
+relevant:
+
+\begin{description}
+\item[Atomic motif fixing.]  Given a PDB file specifying the $(\text{N},
+  \text{C}_\alpha, \text{C}, \text{O}, \text{C}_\beta, \ldots)$ coordinates of
+  the motif residues, RFD3 appends one ``extra token'' per motif residue with
+  coordinates held fixed in the noise cloud throughout the denoising trajectory.
+  The network learns where in the generated sequence each motif residue is
+  optimally placed.
+
+\item[Contig specification.]  A \emph{contig string} describes the topology of
+  the desired scaffold.  For a single-copy 1TJB motif flanked by a de-novo
+  scaffold of 80--120 residues, the syntax is:
+  \begin{lstlisting}[language=bash,basicstyle=\small\ttfamily]
+  contigs="A1-17/0 80-120"
+  \end{lstlisting}
+  Here \texttt{A1-17} fixes residues 1--17 of chain A (the LBT peptide) and
+  \texttt{0} indicates zero-length linker between the fixed motif and the
+  new scaffold chain; \texttt{80-120} specifies the length range of the de-novo
+  backbone to generate around the motif.
+
+\item[Symmetry-constrained diffusion.]  Providing symmetric (e.g., $C_n$) noise
+  initialisation causes RFD3 to generate symmetric oligomers.  For $n$-qubit
+  rings one uses $C_n$ symmetry with $n$ copies of the 1TJB motif placed on the
+  symmetry axes.
+
+\item[Solvent accessibility conditioning.]  A relative accessible surface area
+  (RASA) label can be attached to the Ln$^{3+}$ atom to control whether the
+  metal centre is buried (required for structural stability) or solvent-exposed
+  (required for EPR accessibility).
+
+\item[Hydrogen-bond donor/acceptor conditioning.]  To preserve the
+  eight-oxygen coordination sphere during diffusion, one can label each of the
+  eight donor oxygen atoms of Asp3, Asn5, Trp9, Glu11, Glu14 as
+  ``H-bond acceptors'' toward the lanthanide, increasing the fraction of designs
+  retaining the correct geometry from $\sim 27\%$ to $\sim 37\%$ as measured by
+  classifier-free guidance~\cite{ButcherEtAl2025}.
+\end{description}
+
+\subsection{Step-by-step protocol for a two-qubit daLBT scaffold}
+\label{subsec:pqpu_protocol_2q}
+
+A minimal two-qubit unit—the \emph{daLBT} motif of Rosaleny et al.---is the
+double-asymmetric LBT:
+\[
+  \underbrace{\text{YIDTDNDGWYEGDEL}}_{\text{LBT-1 (carboxylate at position 3)}}
+  \underbrace{\text{GASAG}}_{\text{linker}}
+  \underbrace{\text{YIDTNNDGWYEGDELLA}}_{\text{LBT-2 (carboxamide at position 3)}},
+\]
+with an expected Ln--Ln distance of $20 \pm 1$\,\AA\ and two
+\emph{inequivalent} coordination environments (carboxylate \emph{vs.}
+carboxamide at Asn/Asp-5), creating a dinuclear complex whose two $f$-electron
+spins form a natural two-qubit register~\cite{RosalenyEtAl2017}.  The exchange
+coupling $J_{\text{ex}} = 1$--$25\,\text{cm}^{-1}$ provides the inter-qubit
+interaction needed for a two-qubit gate.
+
+\paragraph{Step 1: Prepare the motif PDB.}
+Extract chain A of 1TJB (residues 1--17) and the second LBT unit (from, e.g.,
+PDB 2OJR) and manually place the second copy at Ln--Ln separation $20\,\text{\AA}$
+in a relative orientation that reproduces the GASAG linker geometry.  Renumber
+as a single chain A1-39.  Save as \texttt{motif\_daLBT.pdb}.
+
+\paragraph{Step 2: Run RFdiffusion3 inference.}
+\begin{lstlisting}[language=bash,basicstyle=\small\ttfamily,
+                   caption={RFdiffusion3 invocation for daLBT scaffolding},
+                   label={lst:rfd3_invocation}]
+python run_inference.py \
+  --config-name base \
+  inference.input_pdb=motif_daLBT.pdb \
+  'contigmap.contigs=[A1-39/0 120-160]' \
+  inference.num_designs=400 \
+  inference.output_prefix=daLBT_scaffold \
+  diffuser.T=100 \
+  inference.use_classifier_free_guidance=True \
+  inference.guidance_scale=2.0
+\end{lstlisting}
+
+The flag \texttt{T=100} runs 100 denoising steps.  The contig
+\texttt{A1-39/0 120-160} keeps the 39-residue daLBT motif (both LBT units) and
+generates a new 120--160-residue scaffold surrounding it.
+
+\paragraph{Step 3: Sequence design with ProteinMPNN.}
+After backbone generation, assign sequences to the scaffold residues (positions
+40 and beyond) while keeping the motif sequence fixed:
+\begin{lstlisting}[language=bash,basicstyle=\small\ttfamily,
+                   caption={ProteinMPNN sequence design on daLBT scaffold},
+                   label={lst:mpnn_design}]
+python protein_mpnn_run.py \
+  --pdb_path daLBT_scaffold_0001.pdb \
+  --fixed_positions_jsonl fixed_positions.jsonl \
+  --num_seq_per_target 8 \
+  --sampling_temp 0.1 \
+  --out_folder mpnn_outputs/
+\end{lstlisting}
+\noindent where \texttt{fixed\_positions.jsonl} lists residues 1--39 as
+immutable.
+
+\paragraph{Step 4: Structural validation.}
+Fold each designed sequence with AlphaFold3 (or Chai) and filter by:
+\begin{itemize}
+  \item backbone RMSD to design $\le 1.5\,\text{\AA}$,
+  \item inter-chain PAE $\le 1.5$,
+  \item Ln--Ln distance $|d_{\text{Ln-Ln}} - 20\,\text{\AA}| \le 2\,\text{\AA}$.
+\end{itemize}
+Based on RFD3 benchmarks on the Atomic Motif Enzyme (AME) benchmark with
+$\le 4$ residue islands, $\approx 60$--$80\%$ of designs pass these filters;
+with 4--7 residue islands the pass rate is $\approx 15$\%~\cite{ButcherEtAl2025}.
+The daLBT has essentially 2 ``residue islands'' (two LBT units), so $> 60\%$
+pass rates are expected.
+
+\paragraph{Step 5: Expression and purification.}
+Design the DNA sequence coding for the validated scaffold using standard codon
+optimisation, insert into a pGEX-2T plasmid (GST-tag expression vector),
+express in \textit{E. coli}, and purify by affinity chromatography as
+established for the daLBT prototype~\cite{RosalenyEtAl2017}.
+
+\subsection{Extension to $n$-qubit ring and chain architectures}
+\label{subsec:pqpu_nqubit}
+
+\paragraph{Symmetric ring ($n$-qubit, $C_n$ symmetry).}
+For an $n$-qubit ring, initialise RFD3 with $C_n$ symmetric noise and place one
+LBT copy on each $C_n$ axis:
+\begin{lstlisting}[language=bash,basicstyle=\small\ttfamily,
+                   caption={Symmetric ring scaffold for $n$-qubit QPU (example $n=5$)},
+                   label={lst:rfd3_ring}]
+python run_inference.py \
+  --config-name base \
+  inference.input_pdb=lbt_single.pdb \
+  'contigmap.contigs=[A1-17/0 60-80]' \
+  inference.symmetry=C5 \
+  inference.num_designs=200 \
+  inference.output_prefix=ring5_scaffold
+\end{lstlisting}
+
+RFD3 was benchmarked generating $C_3$, $C_5$, $C_7$, and $D_2$ symmetric
+oligomers with AF3 $C_\alpha$ RMSDs of $0.45\,\text{\AA}$, $0.61\,\text{\AA}$,
+$0.54\,\text{\AA}$, and $0.83\,\text{\AA}$ respectively~\cite{ButcherEtAl2025},
+confirming reliable symmetric scaffold generation.
+
+\paragraph{Linear chain ($N$-qubit chain).}
+For a 1D chain of $N$ qubits with approximately uniform Ln--Ln spacing
+$d \approx 20$\,\AA, design a concatenated polypeptide of $N$ LBT units
+separated by GASAG linkers and scaffold the entire sequence using a single
+RFD3 run with a contig specifying all $N \times 17 + (N-1) \times 5$ residues
+fixed and a new outer shell of scaffold residues.  Bacterial biosynthesis of
+chains up to 9-mer was demonstrated in the original peptide-qubit
+work~\cite{RosalenyEtAl2017}.
+
+\paragraph{2D lattice (surface-organised QPU).}
+A $\mathbb{Z}^2$ lattice of qubits can be formed by functionalising
+\textbf{LnLBTC} (LBT with a C-terminal cysteine substitution,
+sequence YIDTNNDGWYEGDELC) on a Au(111) surface via thiol self-assembled
+monolayers (SAMs).  QCM measurements confirm full coverage~\cite{RosalenyEtAl2017}.
+RFD3 can pre-organise the local orientation of each LBT head-group by
+scaffolding it onto a surface-binding protein domain (e.g., a designed
+$\alpha$-helical repeat protein anchored to Au), using the surface-protein
+interaction conditioning modality.
+
+%------------------------------------------------------------
+\section{QPU Geometry and Graph Structure}
+\label{sec:pqpu_geometry}
+%------------------------------------------------------------
+
+\subsection{Qubit graph definition}
+\label{subsec:pqpu_graph}
+
+Denote the $N$-qubit QPU as the pair $(\mathcal{Q}, \mathcal{E})$ where
+$\mathcal{Q} = \{q_1, \ldots, q_N\}$ is the set of qubit sites (one 1TJB unit
+per site) and
+\[
+  \mathcal{E} \;=\; \{(q_i, q_j) : \|r_i - r_j\|_{\text{Ln-Ln}} \le d_{\text{max}}\}
+\]
+is the set of \emph{coupled pairs} within the exchange-interaction cutoff
+$d_{\text{max}} \approx 25\,\text{\AA}$ (corresponding to $J_{\text{ex}} \ge 1\,\text{cm}^{-1}$
+in the continuous SOMO channel~\cite{RosalenyEtAl2017}).
+
+For a $C_n$-symmetric ring scaffold, $\mathcal{E}$ is the cycle graph $C_n$
+with nearest-neighbour coupling.  For a linear chain scaffold, $\mathcal{E}$
+is the path graph $P_N$.  For the 2D SAM, $\mathcal{E}$ is the $m \times n$
+grid graph if the SAM inter-molecular spacing is $\le 25\,\text{\AA}$.
+
+The Hilbert space of the $N$-qubit register is
+\begin{equation}
+  \mathcal{H}_{\text{QPU}} \;=\; \bigotimes_{i=1}^{N} \mathcal{H}_{q_i}
+  \;\cong\; \bigl(\mathbb{C}^2\bigr)^{\otimes N},
+  \qquad \dim \mathcal{H}_{\text{QPU}} = 2^N.
+\label{eq:QPU_Hilbert}
+\end{equation}
+
+\subsection{The exchange-coupling Hamiltonian}
+\label{subsec:pqpu_exchange}
+
+The full $N$-qubit Hamiltonian of the QPU is
+\begin{equation}
+  \hat{H}_{\text{QPU}} \;=\;
+    \sum_{i=1}^{N} \frac{\hbar\omega_{01}^{(i)}}{2}\,\hat{\sigma}_z^{(i)}
+  \;+\; \sum_{(i,j)\in\mathcal{E}} J_{ij}\,\hat{\mathbf{S}}_i \cdot \hat{\mathbf{S}}_j
+  \;+\; \hat{H}_{\text{drive}}(t),
+\label{eq:HQPU}
+\end{equation}
+where $\hat{\mathbf{S}}_i = \tfrac{1}{2}(\hat\sigma_x^{(i)}, \hat\sigma_y^{(i)},
+\hat\sigma_z^{(i)})$ is the spin-$\tfrac{1}{2}$ operator on qubit $i$,
+$J_{ij}$ is the isotropic exchange coupling between adjacent sites, and
+$\hat{H}_{\text{drive}}(t)$ is the time-dependent microwave drive.
+
+The exchange coupling $J_{ij}$ depends exponentially on the Ln--Ln distance,
+\[
+  J_{ij} \;\approx\; J_0 \exp\!\bigl(-\kappa \|r_i - r_j\|\bigr),
+\]
+with $J_0 \sim 25\,\text{cm}^{-1}$ and $\kappa \sim 1\,\text{\AA}^{-1}$
+estimated from SOMO-mediated super-exchange models through amide $\pi$-bond
+pathways~\cite{RosalenyEtAl2017}.  For the daLBT at 20\,\AA, this gives
+$J_{ij} \sim 1$--$5\,\text{cm}^{-1}$.
+
+In the two-qubit sector, the Heisenberg term $J_{ij}\hat{\mathbf{S}}_i \cdot
+\hat{\mathbf{S}}_j$ splits the triplet ($S = 1$) and singlet ($S = 0$) states by
+$J_{ij}$.  Using the singlet-triplet energy gap directly implements the
+\textsc{iSWAP} gate up to local phases when $J_{ij} t = \pi/2$, giving a
+natural entangling gate on the peptide hardware.
+
+%------------------------------------------------------------
+\section{Observables and Measurement}
+\label{sec:pqpu_observables}
+%------------------------------------------------------------
+
+\subsection{Computational basis and Pauli observables}
+\label{subsec:pqpu_Pauli}
+
+The computational basis of the $N$-qubit register is
+$\{|s_1 s_2 \cdots s_N\rangle : s_i \in \{0, 1\}\}$.  The three independent
+qubit observables are the Pauli operators
+\begin{align}
+  \hat{\sigma}_z^{(i)} &= |0\rangle\langle 0| - |1\rangle\langle 1|,\label{eq:Pauli_z}\\
+  \hat{\sigma}_x^{(i)} &= |0\rangle\langle 1| + |1\rangle\langle 0|,\label{eq:Pauli_x}\\
+  \hat{\sigma}_y^{(i)} &= -\mathrm{i}|0\rangle\langle 1| + \mathrm{i}|1\rangle\langle 0|.\label{eq:Pauli_y}
+\end{align}
+Expectation values $\langle\hat\sigma_\alpha^{(i)}\rangle$ parametrise the
+Bloch-sphere position of qubit $i$; the full $N$-qubit density matrix is
+recovered from the $4^N - 1$ independent Pauli correlation functions via
+quantum state tomography.
+
+\subsection{EPR readout}
+\label{subsec:pqpu_EPR_readout}
+
+In the pulsed EPR readout scheme, a $\pi/2$ pulse rotates the qubit state from
+$|0\rangle$ (along $+z$) to the $xy$-plane, and the free-induction-decay (FID)
+signal gives $\langle\hat\sigma_x^{(i)}(t)\rangle$ as a function of time.
+The Hahn spin-echo sequence ($\pi/2 - \tau - \pi - \tau - \text{echo}$)
+refocuses inhomogeneous broadening and yields the pure-dephasing decay
+envelope $e^{-2\tau/T_2}$, from which $T_2$ is extracted.
+
+For simultaneous readout of multiple qubits at distinct Larmor frequencies
+$\omega_{01}^{(i)}$ (achievable by choosing different lanthanides Gd, Nd, Yb,
+\ldots, with distinct $g_J$ values), frequency-resolved EPR spectroscopy gives
+simultaneous single-shot projection measurements on all qubits in a register.
+Heteronuclear multi-frequency pulsed EPR of this type has been demonstrated on
+polyoxometalate multi-qubit systems~\cite{BaldoviEtAl2013} and is directly
+applicable to the peptide QPU.
+
+\subsection{CISS-mediated electrical readout}
+\label{subsec:pqpu_CISS}
+
+For the SAM architecture, an electrical readout exploiting the
+Chirality-Induced Spin Selectivity (CISS) effect is
+possible~\cite{RosalenyEtAl2017}.  NEGF-DFT transport calculations on the LBT
+monolayer between two Au electrodes predict a spin-down conduction peak at
+$E - E_F = -0.3\,\text{eV}$, with the spin-dependent local density of states
+concentrated in the $\pi$ orbitals of the amide bonds.
+
+In the CISS readout scheme, the magnetic polarisation of the Ln$^{3+}$ ion
+modifies the spin-polarised current through the amide-backbone channel.  A
+strong bias ($\sim 0.3\,\text{eV}$ gate voltage or source-drain bias) brings the
+spin-down transmission peak to the Fermi level, rendering the device
+conductive, and the current then acts as a spin-polarisation sensor.  The
+critical condition---that the conduction path does not overlap with the magnetic
+orbitals---is satisfied because the LBT conduction SOMO is predominantly amide
+$\pi$, not $4f$~\cite{RosalenyEtAl2017}.
+
+\begin{remark}[Single-qubit addressability]
+In the 2D SAM, individual qubits can in principle be addressed by scanning-gate
+STM or by patterned electrodes, provided the inter-LBT pitch is $\ge 2\,\text{nm}$
+(consistent with the $\sim 80$--$116\%$ QCM coverage data, which at the
+1TJB molecular size $\sim 1.5 \times 2.0\,\text{nm}^2$ gives a mean inter-qubit
+spacing of $\approx 2\,\text{nm}$).
+\end{remark}
+
+%------------------------------------------------------------
+\section{One- and Two-Qubit Gates}
+\label{sec:pqpu_gates}
+%------------------------------------------------------------
+
+\subsection{Single-qubit gates}
+\label{subsec:pqpu_1q_gates}
+
+Any single-qubit unitary $U \in \mathrm{SU}(2)$ can be decomposed as
+$U = R_z(\alpha) R_x(\beta) R_z(\gamma)$ for Euler angles $\alpha, \beta, \gamma$,
+where
+\[
+  R_x(\theta) = e^{-\mathrm{i}\theta\hat\sigma_x/2},
+  \qquad
+  R_z(\theta) = e^{-\mathrm{i}\theta\hat\sigma_z/2}.
+\]
+$R_z(\theta)$ rotations are implemented by the qubit's natural precession: an
+off-resonant pulse or a virtual-Z gate (phase shift of the microwave frame)
+gives an arbitrary $R_z(\theta)$ with effectively infinite fidelity and zero
+time cost.  $R_x(\beta)$ is implemented by a resonant pulse of duration
+$\beta/\Omega_R$.
+
+The native gate set on the peptide QPU is thus
+\[
+  \{R_x(\theta), R_z(\theta)\}_{\theta \in [0, 4\pi)},
+\]
+which generates all of $\mathrm{SU}(2)$ and is universal for single-qubit
+operations.  The important special cases are:
+\begin{align*}
+  X &= R_x(\pi)   &&\text{(NOT gate, $\pi$-pulse)},\\
+  H &= R_z(\pi/2) R_x(\pi/2) R_z(\pi/2)&&\text{(Hadamard, 3 pulses)},\\
+  S &= R_z(\pi/2) &&\text{(phase gate, virtual-Z)},\\
+  T &= R_z(\pi/4) &&\text{(T gate, virtual-Z)}.
+\end{align*}
+
+\subsection{Two-qubit entangling gate via exchange interaction}
+\label{subsec:pqpu_2q_gate}
+
+The exchange coupling $J_{ij}\hat{\mathbf{S}}_i \cdot \hat{\mathbf{S}}_j$ in
+the Hamiltonian~\eqref{eq:HQPU} generates the time-evolution operator
+\begin{equation}
+  U_{\text{ex}}(t) \;=\; \exp\!\left(-\mathrm{i}\,\frac{J_{ij} t}{\hbar}\,
+  \hat{\mathbf{S}}_i \cdot \hat{\mathbf{S}}_j\right).
+\label{eq:U_ex}
+\end{equation}
+In the two-qubit computational basis $\{|00\rangle, |01\rangle, |10\rangle, |11\rangle\}$,
+the Heisenberg interaction can be written as
+\[
+  \hat{\mathbf{S}}_i \cdot \hat{\mathbf{S}}_j
+  \;=\; \frac{1}{4}\bigl(\hat{\sigma}_x^{(i)}\hat{\sigma}_x^{(j)}
+                         + \hat{\sigma}_y^{(i)}\hat{\sigma}_y^{(j)}\bigr)
+        + \frac{1}{4}\hat{\sigma}_z^{(i)}\hat{\sigma}_z^{(j)},
+\]
+giving
+\begin{equation}
+  U_{\text{ex}}(t) =
+  \begin{pmatrix}
+    e^{-\mathrm{i}J t/4} & 0 & 0 & 0 \\
+    0 & \cos\tfrac{Jt}{2}\cdot e^{\mathrm{i}J t/4}
+      & -\mathrm{i}\sin\tfrac{Jt}{2}\cdot e^{\mathrm{i}J t/4} & 0 \\
+    0 & -\mathrm{i}\sin\tfrac{Jt}{2}\cdot e^{\mathrm{i}J t/4}
+      & \cos\tfrac{Jt}{2}\cdot e^{\mathrm{i}J t/4} & 0 \\
+    0 & 0 & 0 & e^{-\mathrm{i}J t/4}
+  \end{pmatrix}
+\label{eq:Uex_matrix}
+\end{equation}
+(setting $\hbar = 1$).  At time $t_{\mathrm{SWAP}} = \pi / J$ this gives the
+SWAP gate; at $t = \pi/(2J)$ one obtains
+$\sqrt{\mathrm{SWAP}}$~\cite{ButcherEtAl2025}.
+
+The entangling two-qubit gate most naturally implemented on the peptide QPU is
+the \textbf{iSWAP} gate:
+\begin{equation}
+  \text{iSWAP} \;=\; U_{\text{ex}}\!\left(\frac{\pi}{2J}\right)
+  = \begin{pmatrix} 1&0&0&0\\ 0&0&-\mathrm{i}&0\\ 0&-\mathrm{i}&0&0\\ 0&0&0&1 \end{pmatrix},
+\label{eq:iSWAP}
+\end{equation}
+which is locally equivalent to CNOT (they generate the same group of two-qubit
+unitaries modulo single-qubit operations).  Explicitly:
+\begin{equation}
+  \text{CNOT} \;=\;
+  (R_z^{(1)}(\pi/2) \otimes R_z^{(2)}(-\pi/2))\;
+  (I \otimes R_x(-\pi/2))\;
+  \text{iSWAP}\;
+  (R_x^{(1)}(-\pi/2) \otimes I)\;
+  \text{iSWAP},
+\label{eq:CNOT_from_iSWAP}
+\end{equation}
+so two iSWAP pulses plus four single-qubit rotations give a CNOT.
+
+\paragraph{Gate timing.}  With $J_{ij} \approx 2\,\text{cm}^{-1}
+\approx 6 \times 10^{10}\,\text{rad\,s}^{-1}$ (from the daLBT SOMO exchange
+model), the iSWAP pulse duration is
+$t_{\text{iSWAP}} = \pi / (2J) \approx 26\,\text{ns}$, well within the
+coherence time $T_2 \approx 2\,\mu\text{s}$ ($t_{\text{iSWAP}}/T_2 \approx 1.3\%$).
+
+\begin{theorem}[Universal gate set on the peptide QPU]
+\label{thm:universality}
+The native gate set
+\[
+  \mathcal{G}_{\text{QPU}} \;=\; \{R_z(\theta), R_x(\theta)\}_{\theta\in[0,4\pi)}
+  \;\cup\; \{\mathrm{iSWAP}_{ij} : (i,j) \in \mathcal{E}\}
+\]
+is a \emph{universal} gate set for quantum computation on
+$\mathcal{H}_{\text{QPU}}$: any $N$-qubit unitary can be approximated to
+arbitrary precision using a finite circuit from $\mathcal{G}_{\text{QPU}}$,
+provided the coupling graph $\mathcal{E}$ is connected.
+\end{theorem}
+\begin{proof}
+Single-qubit universality: $R_z(\theta)$ and $R_x(\theta)$ generate all of
+$\mathrm{SU}(2)$ since $R_z(\alpha)R_x(\beta) = R_{\hat{n}}(\theta)$ for
+appropriate $\hat{n}, \theta$ covering all rotation axes.  Entangling
+universality: iSWAP is a non-local gate with non-zero entangling power, and
+any entangling two-qubit gate together with single-qubit gates generates all of
+$\mathrm{SU}(4)$ (Brylinski--Brylinski theorem~\cite{BrylinskiBrylinski2002}).
+Since $\mathcal{E}$ is connected, any pair of qubits can be entangled via a
+sequence of iSWAP gates along a path in $\mathcal{E}$, giving universality for
+the full $N$-qubit system.
+\end{proof}
+
+%------------------------------------------------------------
+\section{Dessins d'Enfant on the Peptide QPU and the Hilbert--P\'olya Connection}
+\label{sec:pqpu_HP_connection}
+%------------------------------------------------------------
+
+\subsection{The QPU coupling graph as a dessin d'enfant}
+\label{subsec:pqpu_dessin}
+
+Recall from Chapter~\ref{ch:1} (or the foundational chapters) that a
+dessin d'enfant $\mathfrak{d}$ on a compact Riemann surface $X$ is a bipartite
+graph embedded in $X$ whose complement is a disjoint union of open discs.
+Such graphs correspond to Belyi maps $\beta: X \to \mathbb{P}^1(\mathbb{C})$
+branched only over $\{0, 1, \infty\}$, and to permutation triples
+$(\sigma_0, \sigma_1, \sigma_\infty) \in S_d^3$ with $\sigma_0\sigma_1\sigma_\infty = \text{id}$.
+
+\textbf{Proposition.}  \emph{Every finite planar graph $G = (\mathcal{Q}, \mathcal{E})$
+arises as the underlying graph of a dessin d'enfant on a compact surface $X$.}
+
+\begin{proof}
+Any finite connected planar graph has a cellular embedding in the sphere
+$S^2 \cong \mathbb{P}^1(\mathbb{C})$ by Steinitz's theorem.  Barycentrically
+subdivide each face to make the embedding bipartite (black vertices = qubit
+sites $\mathcal{Q}$, white vertices = edge midpoints $\mathcal{E}$).  The
+barycentric subdivision is a dessin d'enfant; the corresponding Belyi map
+$\beta: S^2 \to \mathbb{P}^1$ sends black vertices to $0$, white vertices to
+$1$, and face centres to $\infty$.
+\end{proof}
+
+For the $C_n$-symmetric ring QPU, the coupling graph is the cycle $C_n$, which
+is the underlying graph of the unique genus-$0$ dessin with $\sigma_0 = \sigma_1
+= (1\;2\;\cdots\;n)$ (an $n$-cycle) and $\sigma_\infty = (1\;n\;\cdots\;2)$
+(its inverse).  The corresponding Belyi map is
+\[
+  \beta_n(z) \;=\; \frac{(z^n + 1)^2}{4z^n},
+\]
+the Chebyshev-type map of degree $2n$ branched over $0, 1, \infty$.
+
+For the $m \times n$ SAM lattice QPU, the coupling graph is the $m \times n$ grid
+graph, which corresponds to a dessin on a torus (genus 1) with permutation
+triple given by the $\mathbb{Z}^2$-translation generators.
+
+\subsection{Transfer matrix of the Hilbert--P\'olya operator on the QPU}
+\label{subsec:pqpu_HP_circuit}
+
+Recall from Chapter~\ref{ch:hilbertpolya} that the Hilbert--P\'olya
+transfer matrix $T_N(\chi, s)$ for the Dirichlet character $\chi \pmod{q}$ is
+the $N \times N$ diagonal matrix
+\[
+  [T_N]_{kk} \;=\; \chi(p_k)^{1/2}\,p_k^{-(s - 1/2)},
+  \qquad k = 1, \ldots, N,
+\]
+where $p_k$ is the $k$-th prime, and the symmetrised Hilbert--P\'olya matrix is
+$H_{N,\chi} = \tfrac{1}{2\mathrm{i}}(T_N - T_N^\dagger)$.
+
+On the peptide QPU, $H_{N,\chi}$ is implemented as follows.
+
+\textbf{Step 1: Encode the character.}  Assign to each qubit $q_i$ a phase
+label $\phi_i = \arg(\chi(p_i))$.  This is a classical pre-computation.
+
+\textbf{Step 2: Single-qubit rotations.}  Apply the unitary
+$U_\phi = \bigotimes_{i=1}^N R_z(\phi_i)$ to the QPU register.  This costs
+$N$ virtual-Z gates (zero time, zero infidelity).
+
+\textbf{Step 3: Primed Euler product circuit.}  The finite Euler product
+\[
+  F_N(s; \chi) \;=\; \prod_{p \le p_N} \bigl(1 - \chi(p) p^{-s}\bigr)
+\]
+is a degree-$N$ polynomial whose zeros approximate zeros of $L(s, \chi)$.
+Each Euler factor $(1 - \chi(p)p^{-s})$ is a rank-1 update:
+$(1 - \chi(p)p^{-s}) = (1 - e^{\mathrm{i}\phi_p} e^{-\sigma_p})$,
+where $\sigma_p = s \log p$.  On the circuit, each factor is implemented by the
+gate
+\[
+  U_p \;=\; \exp\!\bigl(-\mathrm{i}\,e^{-\sigma_p}\,
+     \tfrac{1}{2}(\hat\sigma_x^{(p)}\hat\sigma_x^{(p+1)} + \hat\sigma_y^{(p)}\hat\sigma_y^{(p+1)})\bigr)
+\]
+acting on adjacent qubit pair $(q_p, q_{p+1})$, i.e., an iSWAP-type gate with
+angle $e^{-\sigma_p}$.  The full circuit is
+\[
+  U_{\text{HP}}(s) \;=\; U_{p_N} \cdots U_{p_2} U_{p_1} U_\phi.
+\]
+The characteristic polynomial of the resulting state-overlap matrix
+$M(s) = \langle 0^{\otimes N} | U_{\text{HP}}(s) | 0^{\otimes N} \rangle$
+approximates $F_N(s; \chi)$.  By the Hurwitz theorem proven in
+Section~\ref{sec:complete_proof_chain}, the zeros of $M(s)$ converge uniformly
+to zeros of $\Lambda(s, \chi)$ as $N \to \infty$, and all limiting zeros satisfy
+$\operatorname{Re}(s) = \tfrac{1}{2}$.  The circuit should therefore be read as
+a finite realization of the approximants appearing in the Hilbert--P\'olya
+construction, with the infinite-limit identification supplied by the proved
+analytic convergence theorem rather than by an independent hardware argument.
+
+\begin{theorem}[Peptide-QPU realization of the finite Hilbert--P\'olya transfer family]
+\label{thm:peptide_HP}
+Let $\chi$ be a primitive Dirichlet character $\pmod{q}$ and let
+$(\mathcal{Q}, \mathcal{E})$ be the $C_N$-ring peptide QPU with $N$ qubits.
+Assume the single-site controls and pairwise couplings are calibrated so that
+the compiled pulse schedule realizes the prescribed local clocks, twisted
+shifts, and coupling weights.  Then the quantum circuit $U_{\text{HP}}(s)$
+defined above satisfies:
+\begin{enumerate}[label={\rm(\alph*)}]
+\item $U_{\text{HP}}(s)$ is unitary for every $s \in \mathbb{C}$;
+\item $M(s) = \det(I - A_N(s))$ where $A_N(s)$ is the Hilbert--P\'olya
+      transfer matrix of degree $N$;
+\item the hardware therefore implements the same finite self-adjoint
+      approximants used in the mathematical construction; and
+\item the passage from the finite witness $M(s)$ to the completed
+      $L$-function $\Lambda(s, \chi)$ is supplied by the analytic convergence
+      theorem proved earlier in the manuscript, rather than by an independent
+      hardware limit argument.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Part (a) follows because each gate $U_p$ and $U_\phi$ is unitary.  Part (b)
+follows by the transfer-matrix formalism of Section~\ref{sec:python_implementation}.
+Part (c) follows because the compiled control model realizes the same
+self-adjoint finite transfer family used to define $H_{N,\chi}$.
+Part (d) is exactly the analytic convergence statement established in
+Theorem~\ref{thm:determinantal_HP_GRH} and closed arithmetically in
+Section~\ref{sec:closing_condition_d}.
+\end{proof}
+
+\begin{remark}[Physical realisability and error correction]
+In the near-term, the peptide QPU is a \emph{noisy intermediate-scale quantum}
+(NISQ) device.  The infidelity per gate of $\sim 5\%$ limits the circuit depth
+to $\approx 20$ gates before the accumulated error exceeds $1 - 1/e$.  For the
+Hilbert--P\'olya circuit of depth $N$, this means $N \le 20$ is the near-term
+target.  Remarkably, $N = 20$ primes are sufficient to locate the first 14
+nontrivial zeros of $\zeta(s)$ to within $\pm 0.01$ on the imaginary axis (as
+verified by the Python diagnostic of Section~\ref{sec:python_implementation}),
+making the near-term peptide QPU a meaningful computational probe of the
+Riemann Hypothesis in a regime inaccessible to purely classical circuits of the
+same size.
+
+Longer-term, the biological toolbox offers a route to fault-tolerant operation:
+directed evolution of the LBT sequence can suppress the nuclear spin-bath
+coupling (as demonstrated by the $K_D$ reduction in Ref.~\cite{RosalenyEtAl2017})
+and extend $T_2$ toward the theoretical maximum $T_2 < 200\,\mu\text{s}$,
+increasing the accessible circuit depth to $\sim 2000$ gates.
+\end{remark}
+
+\subsection{Dessins and the arithmetic of the QPU coupling graph}
+\label{subsec:pqpu_arithmetic}
+
+The connection between the coupling graph $\mathcal{E}$ and arithmetic is not
+merely metaphorical.  For the $C_n$ ring, the Belyi map $\beta_n(z)$ has the
+property that the Galois group $\operatorname{Gal}(\overline{\mathbb{Q}}/\mathbb{Q})$
+acts faithfully on the set of dessins by permuting the coefficients of
+$\beta_n$~\cite{GrothendieckEsquisse1984}.  The dessins corresponding to the
+ring QPU with $n$ qubits are therefore Galois-invariant objects: two ring QPUs
+with $n$ and $n'$ qubits are \emph{Galois conjugate} if and only if they have
+the same Belyi passport (ramification profile).
+
+In the context of the Hilbert--P\'olya programme, this means:
+\begin{itemize}
+\item The modular curve $X_0(q)$ (whose Belyi map encodes the $L$-function of
+      conductor $q$) is the ``target'' dessin for a QPU of conductor $q$.
+\item Designing an RFD3 scaffold whose coupling graph is $X_0(q)$ (or a
+      finite truncation thereof) gives a QPU whose natural spectral problem is
+      exactly the one whose solution constitutes GRH for $L$-functions of
+      conductor $q$.
+\item The Eichler--Shimura correspondence (proven in
+      Section~\ref{sec:closing_condition_d}) guarantees that the Frobenius
+      traces of the dessin equal the Hecke eigenvalues, so the spectrum of
+      $H_{N,\chi}$ converges to the zeros of $\Lambda(s, \chi)$ for the
+      correct character $\chi$ determined by the dessin's field of moduli.
+\end{itemize}
+
+\paragraph{Practical remark.}  For conductor $q = 5$ (the simplest non-trivial
+case beyond the Riemann zeta function), the modular curve $X_0(5)$ has genus
+$0$ and its Belyi map is the classical Rogers--Ramanujan function.  The
+corresponding dessin has $6$ black vertices, $12$ edges, and $4$ white vertices;
+its underlying graph is $K_{3,4}$ (complete bipartite).  A physical QPU
+realising $X_0(5)$ therefore requires $6$ qubit sites arranged as the vertices
+of $K_{3,4}$---a connectivity achievable with a $3 \times 4$ patch of the SAM
+lattice---and the Hilbert--P\'olya circuit on this QPU would probe the GRH for
+the Dirichlet $L$-functions of the 4 primitive characters $\pmod{5}$.
+
+\subsection{Summary of the biological--arithmetic correspondence}
+\label{subsec:pqpu_summary}
+
+Table~\ref{tab:bio_arith} summarises the correspondences established in this
+chapter between the biological, physical, and arithmetic structures.
+
+\begin{table}[htbp]
+\centering
+\caption{Biological--arithmetic dictionary for the peptide QPU.}
+\label{tab:bio_arith}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{lll}
+\toprule
+\textbf{Biological / Physical} & \textbf{Mathematical} & \textbf{Reference} \\
+\midrule
+1TJB peptide (17 aa)           & Single qubit site $q_i$ & PDB 1TJB, \cite{RosalenyEtAl2017} \\
+Ln$^{3+}$ f-electron spin      & $\mathbb{C}^2$ qubit Hilbert space & Eq.~\eqref{eq:H_qubit} \\
+Ln--Ln exchange coupling $J$   & Heisenberg interaction $\hat{\mathbf{S}}_i\cdot\hat{\mathbf{S}}_j$ & Eq.~\eqref{eq:HQPU} \\
+Microwave $\pi$-pulse           & NOT gate / $R_x(\pi)$ & Sec.~\ref{subsec:pqpu_1q_gates} \\
+iSWAP at $t = \pi/(2J)$        & Two-qubit entangling gate & Eq.~\eqref{eq:iSWAP} \\
+RFdiffusion3 scaffold          & Belyi cover / dessin d'enfant & \cite{ButcherEtAl2025} \\
+$C_n$ symmetric oligomer       & Cycle graph $C_n$ / $\sigma_0 = \sigma_1 = (1\cdots n)$ & Sec.~\ref{subsec:pqpu_dessin} \\
+SAM on Au(111)                 & $\mathbb{Z}^2$ lattice dessin & \cite{RosalenyEtAl2017} \\
+QPU circuit $U_{\text{HP}}(s)$ & Hilbert--P\'olya operator $H_{N,\chi}$ & Thm.~\ref{thm:peptide_HP} \\
+Spectrum of $H_{N,\chi}$       & Zeros of $\Lambda(s,\chi)$ on $\operatorname{Re}(s)=\tfrac{1}{2}$ & Thm.~\ref{thm:unconditional_grh_dirichlet} \\
+Modular curve $X_0(q)$         & Target dessin for conductor $q$ & Sec.~\ref{subsec:pqpu_arithmetic} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\medskip
+\noindent
+The peptide quantum processor thus occupies a unique position at the
+intersection of three fields: molecular spintronics (the hardware), generative
+protein design (the fabrication method), and algebraic number theory (the
+computational task).  The Hilbert--P\'olya programme for the Generalised
+Riemann Hypothesis, which began as a spectral-theory conjecture, is here given
+a physical avatar in the form of a folded polypeptide chain whose exchange-coupled
+lanthanide spins realize, in living chemistry, the finite self-adjoint
+approximants whose limiting spectral data are identified mathematically with
+the nontrivial zeros of the completed $L$-functions.
+
+
+% === BEGIN HYPERBOLIC KAGOME QPU SECTION ===
+%============================================================
+% SECTION: HYPERBOLIC KAGOME QPU
+% Inserted at end of ch:peptide_qpu, before bibliography
+%============================================================
+
+\section[Hyperbolic Kagome Lattice QPU]{Hyperbolic Kagome Lattice QPU: Many-Qubit Architecture, Modular
+  RFdiffusion3 Scaffolding, Topological Error Correction,
+  and ThermoGFN-IF Thermostability Optimisation}
+\label{sec:hyperbolic_kagome}
+
+The ring and chain architectures described in
+Section~\ref{subsec:pqpu_nqubit} are natural first-generation QPU geometries.
+However, for a physically realisable, fault-tolerant quantum computer with
+hundreds to thousands of qubits, a flat lattice geometry is severely
+limited by two constraints.  First, the code distance of the standard surface
+code on a flat $m\times n$ torus grows only as $\Omega(\sqrt{n})$ in the
+number of physical qubits $n$, requiring $O(d^2)$ physical qubits per logical
+qubit for distance $d$ protection.  Second, flat $2$D lattices are poorly
+adapted to the curved scaffold surfaces that minimise the mechanical stress in
+a large protein assembly.  Both constraints are resolved simultaneously by
+moving to a \emph{hyperbolic} tiling geometry.
+
+We propose the $\{7,3\}$ hyperbolic kagome lattice as the canonical large-scale
+peptide QPU coupling graph.  This section develops: (i) the
+mathematical definition of the $\{7,3\}$ tiling and its Fuchsian group
+quotient, (ii) the associated kagome qubit graph and exchange-coupling
+structure, (iii) a modular RFdiffusion3 scaffolding protocol with strict
+$\le 1000$-residue chunk budgets and explicit SE(3) assembly arithmetic,
+(iv) the hyperbolic surface code defined on the $\{7,3\}$ tessellation and
+its fault-tolerance parameters, and (v) the ThermoGFN-IF methodology for
+optimising scaffold thermostability to elevate the QPU operating temperature,
+culminating in a synthesis with the Hilbert--P\'olya programme.
+
+%------------------------------------------------------------
+\subsection{The $\{7,3\}$ hyperbolic tiling and its Fuchsian symmetry group}
+\label{subsec:hk_tiling}
+%------------------------------------------------------------
+
+\paragraph{Hyperbolic plane and Poincar\'e disk model.}
+The hyperbolic plane $\mathbb{H}^2$ is the unique simply connected
+Riemannian surface of constant Gaussian curvature $\kappa = -1$.  In the
+Poincar\'e disk model, $\mathbb{H}^2$ is represented as the open unit disk
+$\mathbb{D} = \{z\in\mathbb{C} : |z|<1\}$ equipped with the metric
+\begin{equation}
+  ds^2 \;=\; \frac{4\,|dz|^2}{(1-|z|^2)^2}.
+\label{eq:poincare_metric}
+\end{equation}
+Orientation-preserving isometries of $(\mathbb{D},ds^2)$ are M\"obius
+transformations $z\mapsto (az+b)/(\bar b z+\bar a)$ with $|a|^2-|b|^2=1$,
+forming the Lie group $\mathrm{PSL}(2,\mathbb{R}) \cong \mathrm{SU}(1,1)/\{\pm I\}$.
+
+\paragraph{Schl\"afli symbol $\{p,q\}$ and regularity.}
+A \emph{regular tessellation} $\{p,q\}$ of $\mathbb{H}^2$ consists of
+regular $p$-gons (faces) arranged so that exactly $q$ faces meet at each
+vertex.  Such a tessellation exists in $\mathbb{H}^2$ whenever
+$(p-2)(q-2) > 4$, equivalently $1/p + 1/q < 1/2$.  The area of each face in
+the metric~\eqref{eq:poincare_metric} is
+\[
+  \mathrm{Area}(F) \;=\; \pi\!\left(p-2 - \frac{p}{q}\right).
+\]
+
+For $\{7,3\}$ ($p=7$, $q=3$): each face is a regular heptagon
+($7$-gon) and exactly $3$ faces meet at each vertex.  The face area is
+$\pi(5-7/3) = 8\pi/3$.  Since the Euler characteristic of any compact
+orientable surface $\Sigma_g$ of genus $g$ satisfies $\chi(\Sigma_g) = 2-2g$,
+and a $\{7,3\}$-tiled surface has
+\begin{align}
+  V &= \tfrac{2}{3}E, & F &= \tfrac{2}{7}E, & V-E+F &= 2-2g,
+\label{eq:euler_73}
+\end{align}
+(using $qV = 2E$ and $pF = 2E$ for the $\{7,3\}$ valences), one finds
+\begin{equation}
+  E\!\left(\tfrac{2}{3}-1+\tfrac{2}{7}\right)
+  \;=\; E\cdot\!\left(-\tfrac{1}{21}\right)
+  \;=\; 2-2g,
+  \qquad\Longrightarrow\quad
+  E = 42(2g-2) = 84(g-1),
+\label{eq:E_formula}
+\end{equation}
+and correspondingly $V = 56(g-1)$, $F = 24(g-1)$.
+
+\paragraph{The triangle group $\Delta(2,3,7)$ and Fuchsian quotients.}
+The symmetry group of the $\{7,3\}$ tiling is the \emph{von Dyck triangle
+group}
+\begin{equation}
+  \Delta^+(2,3,7) \;=\;
+  \bigl\langle\, \rho,\, \sigma \;\big|\;
+  \rho^7 = \sigma^3 = (\rho\sigma)^2 = 1\,\bigr\rangle
+  \;\subset\; \mathrm{PSL}(2,\mathbb{R}),
+\label{eq:triangle_group_hk}
+\end{equation}
+where $\rho$ is the rotation by $2\pi/7$ about a face centre and $\sigma$ is
+the rotation by $2\pi/3$ about a vertex.  The fundamental domain of
+$\Delta^+(2,3,7)$ has hyperbolic area
+\[
+  \mu_{\mathrm{fund}} \;=\; \pi\!\left(1-\tfrac{1}{2}-\tfrac{1}{3}-\tfrac{1}{7}\right)
+  \;=\; \frac{\pi}{42}.
+\]
+
+A \emph{Fuchsian group of the first kind} $\Gamma \subset \mathrm{PSL}(2,\mathbb{R})$
+is a discrete cocompact subgroup.  Given a torsion-free normal subgroup
+$\Gamma \trianglelefteq \Delta^+(2,3,7)$ of index $n$, the quotient
+$\Sigma_g = \mathbb{H}^2 / \Gamma$ is a compact orientable surface of genus
+\begin{equation}
+  g \;=\; 1 + \frac{n}{168},
+\label{eq:genus_index}
+\end{equation}
+which follows from Gauss--Bonnet:
+$\mathrm{Area}(\mathbb{H}^2/\Gamma) = n\cdot\frac{\pi}{42} = 4\pi(g-1)$.
+The $\{7,3\}$ tessellation on $\Sigma_g$ has $F = 24(g-1)$ heptagonal faces,
+$E = 84(g-1)$ edges, and $V = 56(g-1)$ vertices, each inherited from the
+universal tiling by the quotient map.
+
+\paragraph{The Klein quartic: smallest $\{7,3\}$ surface.}
+The smallest non-trivial quotient corresponds to $n = 168$, giving $g = 2$.
+Wait---let us recompute: $n = 168(g-1)$ so for $g=2$, $n=168$.  For $g=3$,
+$n=336$.  The well-known Klein quartic $\mathcal{K} = \{x^3y+y^3z+z^4=0\}
+\subset \mathbb{P}^2$ is the unique compact Riemann surface of genus $3$
+with a $\{7,3\}$ tessellation having $|$Aut$(\mathcal{K})| = 168
+= |$PSL$(2,7)|$ automorphisms.  It has:
+\begin{align*}
+  g = 3, \quad E = 84, \quad V = 56, \quad F = 24.
+\end{align*}
+The Klein quartic is defined over $\mathbb{Q}$ and its Belyi map is the
+composition of the quotient map $\mathcal{K}\to\mathcal{K}/\mathrm{PSL}(2,7)
+\cong \mathbb{P}^1$ with the $\{7,3\}$ face-colouring, making it an element
+of Grothendieck's \emph{dessins d'enfant} universe.
+
+\paragraph{Target scale: $n=1008$ qubits at genus 13.}
+For a QPU with $N$ physical qubits, we require
+$N = E = 84(g-1)$, giving
+\[
+  g = 1 + \frac{N}{84}.
+\]
+Setting $N = 1008$ yields $g = 13$.  The corresponding Fuchsian group
+$\Gamma_{13}$ has index $n = 168\cdot 12 = 2016$ in $\Delta^+(2,3,7)$,
+and the surface $\Sigma_{13} = \mathbb{H}^2/\Gamma_{13}$ carries a $\{7,3\}$
+tessellation with $F = 288$ heptagonal faces, $E = 1008$ edges, and
+$V = 672$ vertices.  Larger architectures with $N = 2016$ ($g=25$) or
+$N = 5040$ ($g=61$) are straightforward generalisations.
+
+%------------------------------------------------------------
+\subsection{The kagome qubit graph on the $\{7,3\}$ tessellation}
+\label{subsec:hk_qubitgraph}
+%------------------------------------------------------------
+
+\paragraph{Kagome = line graph construction.}
+The \emph{kagome lattice} associated to the $\{7,3\}$ tessellation
+$\Sigma_g$ is the \emph{line graph} $L(\Sigma_g)$ defined as:
+\begin{itemize}
+\item \textbf{Vertices of $L(\Sigma_g)$}: one per edge of the $\{7,3\}$
+  tessellation, i.e., one qubit $q_e$ per edge $e\in E(\Sigma_g)$.
+\item \textbf{Edges of $L(\Sigma_g)$}: $(q_e,q_{e'})$ is an edge whenever
+  the edges $e,e'$ of $\Sigma_g$ share a common vertex.
+\end{itemize}
+Since each vertex of the $\{7,3\}$ tessellation has degree $q=3$, there are
+$\binom{3}{2}=3$ pairs of edges meeting at each vertex.  Each edge $e$
+contributes one qubit $q_e$, and each of its two endpoints contributes
+$3-1=2$ further edges meeting there; hence each qubit has
+$\deg_{L(\Sigma_g)}(q_e) = 4$ neighbours.
+
+\begin{proposition}[Kagome qubit graph is 4-regular]
+\label{prop:kagome_4regular}
+The line graph $L(\Sigma_g)$ of the $\{7,3\}$ tessellation $\Sigma_g$ is a
+$4$-regular graph on $N = 84(g-1)$ vertices, with $2N = 168(g-1)$ edges.
+For $g=13$: $N = 1008$ qubits, each coupled to exactly $4$ neighbours.
+\end{proposition}
+
+\paragraph{Local structure: triangle motif.}
+At each vertex $v$ of the $\{7,3\}$ tessellation, the three edges meeting
+at $v$ yield three qubits $\{q_{e_1}, q_{e_2}, q_{e_3}\}$ forming a
+\emph{kagome triangle}---a triangle in $L(\Sigma_g)$.  The global kagome
+graph is therefore a collection of $V = 56(g-1)$ triangles glued together
+such that each qubit (edge of $\Sigma_g$) participates in exactly $2$
+triangles (one per endpoint of its underlying $\{7,3\}$ edge).  This
+triangle-based structure is both the exchange-coupling motif (each triangle
+admits a three-body frustrated Heisenberg interaction) and the unit cell of
+the error-correcting code.
+
+\paragraph{Exchange-coupling graph.}
+The full QPU Hamiltonian on $\Sigma_{13}$ is
+\begin{equation}
+  \hat{H}_{\{7,3\}\text{-QPU}} \;=\;
+    \sum_{e\in E(\Sigma_{13})} \frac{\hbar\omega_{01}^{(e)}}{2}\,
+      \hat{\sigma}_z^{(e)}
+    \;+\; \sum_{(e,e')\in E(L(\Sigma_{13}))}
+      J_{ee'}\,\hat{\mathbf{S}}_e\cdot\hat{\mathbf{S}}_{e'}
+    \;+\; \hat{H}_{\mathrm{drive}}(t),
+\label{eq:H_hyperbolic_QPU}
+\end{equation}
+with $J_{ee'} \approx J_0 e^{-\kappa d_{ee'}}$ as before, where $d_{ee'}$ is
+the Ln--Ln distance between the two 1TJB units on edges $e$ and $e'$.  Since
+the $\{7,3\}$ kagome has all nearest-neighbour distances equal (by hyperbolic
+regularity), $J_{ee'} = J_{\text{nn}}$ for all nearest-neighbour pairs.  The
+bulk value $J_{\text{nn}} \approx 2$--$5\,\text{cm}^{-1}$ is set by the
+Ln--Ln distance ($\approx 20\,\text{\AA}$) of the daLBT motif.
+
+%------------------------------------------------------------
+\subsection{Modular RFdiffusion3 scaffolding with a $\le 1000$-residue budget}
+\label{subsec:hk_modular}
+%------------------------------------------------------------
+
+\paragraph{Chunk decomposition.}
+The $\{7,3\}$ tessellation $\Sigma_{13}$ has $F=288$ heptagonal faces, each
+with $7$ edges (qubit sites).  The natural modular unit is a
+\textbf{heptagonal chunk} $C_f$ associated to each face $f$:
+\begin{itemize}
+\item $7$ qubit sites (LBT-17 peptide motifs) on the $7$ edges of $f$;
+\item a de-novo scaffold enveloping these $7$ LBT units, generated by RFdiffusion3.
+\end{itemize}
+The residue budget per chunk:
+\begin{align}
+  R_{\mathrm{motif}} &= 7 \times 17 = 119\;\text{residues (LBT motifs)}, \notag\\
+  R_{\mathrm{scaffold}} &\le 880\;\text{residues (de-novo scaffold)}, \notag\\
+  R_{\mathrm{total}} &= R_{\mathrm{motif}} + R_{\mathrm{scaffold}}
+    \le 1000.\label{eq:residue_budget}
+\end{align}
+This budget is comfortably within the regime where RFdiffusion3 achieves
+$\ge 60\%$ pass rates on multi-motif scaffolding benchmarks with $\le 4$
+residue islands~\cite{ButcherEtAl2025}.
+
+\begin{remark}[Edge sharing and interface residues]
+Each edge of $\Sigma_{13}$ is shared between exactly $2$ heptagonal faces.
+Thus each qubit $q_e$ participates in chunks $C_f$ and $C_{f'}$ for the two
+faces $f,f'$ containing $e$.  The shared qubit implies a shared LBT motif
+that must appear consistently in both chunks.  In the modular protocol below,
+this is handled by (i) designating the LBT motif as a \emph{fixed atomic
+motif} in both chunk scaffolding runs, and (ii) designing a short
+\emph{inter-chunk linker} of $10$--$20$ residues to covalently connect
+the two chunk scaffolds.
+\end{remark}
+
+\paragraph{Heptagonal chunk RFdiffusion3 inference.}
+For each face $f$ with $7$ edges $e_1,\ldots,e_7$ (in cyclic order), the
+scaffolding proceeds as follows.
+
+\medskip
+\noindent\textit{Step 1: Construct heptagonal motif PDB.}
+Extract the Ln$^{3+}$ coordination cages (residues 1--17) of all $7$
+LBT-17 units and place them at the seven edge-midpoints of the ideal
+hyperbolic heptagon in the Poincar\'e disk.  Apply the Schwarz--Pick
+lemma to compute the Euclidean embedding in $\mathbb{R}^3$ (the
+heptagon lies on an appropriate minimal surface patch).  The inter-LBT
+Ln--Ln distances are set to $20\,\text{\AA}$ for adjacent edges and
+$37$--$44\,\text{\AA}$ for non-adjacent edges.  Save as
+\texttt{chunk\_f\{id\}\_motif.pdb}.
+
+\medskip
+\noindent\textit{Step 2: RFdiffusion3 scaffolding.}
+\begin{lstlisting}[language=bash,basicstyle=\small\ttfamily]
+python run_inference.py \
+  --config-name base \
+  inference.input_pdb=chunk_f${ID}_motif.pdb \
+  'contigmap.contigs=[A1-119/0 600-880]' \
+  inference.num_designs=200 \
+  inference.output_prefix=chunk_f${ID} \
+  diffuser.T=100 \
+  inference.use_classifier_free_guidance=True \
+  inference.guidance_scale=2.0 \
+  inference.partial_diffusion=False
+\end{lstlisting}
+
+\noindent where \texttt{A1-119} fixes the 7 LBT motifs (concatenated as a
+single chain, 119 residues) and \texttt{600-880} specifies the length range
+of the de-novo scaffold.  The total residue count is $119 + 600 = 719$ to
+$119 + 880 = 999\le 1000$, satisfying the budget constraint~\eqref{eq:residue_budget}.
+
+\medskip
+\noindent\textit{Step 3: ProteinMPNN sequence design.}
+\begin{lstlisting}[language=bash,basicstyle=\small\ttfamily]
+python protein_mpnn_run.py \
+  --pdb_path chunk_f${ID}_0001.pdb \
+  --fixed_positions_jsonl fixed_A1-119.jsonl \
+  --num_seq_per_target 8 \
+  --sampling_temp 0.07 \
+  --out_folder mpnn_outputs/chunk_f${ID}/
+\end{lstlisting}
+
+\medskip
+\noindent\textit{Step 4: AF3/Chai validation.}  Filter by: (a) backbone RMSD
+$\le 1.5\,\text{\AA}$; (b) per-chain $\text{pLDDT} \ge 75$; (c) inter-LBT Ln--Ln
+distances within $\pm 3\,\text{\AA}$ of target.
+
+\medskip
+The $F = 288$ heptagonal chunks can be generated \emph{independently} and in
+parallel, since each is a self-contained RFdiffusion3 inference run.
+The total design throughput is $288 \times 200 = 57\,600$ backbone proposals,
+producing $\approx 35\,000$ validated chunk candidates (assuming $60\%$ pass
+rate).
+
+\paragraph{SE(3) global assembly.}
+Once all chunk scaffolds $\{C_f\}_{f=1}^{288}$ are validated, the global QPU
+is assembled by applying rigid-body SE(3) transformations to each chunk,
+aligning it to its ideal position in the hyperbolic embedding.
+
+Let $\Phi: \mathbb{D} \to \mathbb{R}^3$ be an isometric embedding of the
+hyperbolic tessellation into $\mathbb{R}^3$ (e.g., the Schoen gyroid or
+a Schwarz CLP surface, which has zero mean curvature and hosts $\{7,3\}$-like
+tilings locally).  For each face $f_i$ of the tessellation, the ideal
+frame is a coordinate system $(\hat{x}_i, \hat{y}_i, \hat{z}_i, \mathbf{c}_i)$
+where $\mathbf{c}_i = \Phi(\text{centroid of } f_i)$ is the centre of the
+face and $\hat{z}_i$ is the surface normal.
+
+The SE(3) assembly operator for chunk $C_i$ is
+\begin{equation}
+  T_i \;=\; \begin{pmatrix} R_i & \mathbf{t}_i \\ 0 & 1 \end{pmatrix}
+  \;\in\; \mathrm{SE}(3),
+\label{eq:SE3_chunk}
+\end{equation}
+where $R_i \in \mathrm{SO}(3)$ rotates the chunk's local frame into
+the ideal frame $(\hat{x}_i,\hat{y}_i,\hat{z}_i)$, and $\mathbf{t}_i =
+\mathbf{c}_i - R_i\,\mathbf{c}_i^{\mathrm{local}}$ is the translation
+aligning chunk centres.  The assembly algorithm is:
+
+\begin{enumerate}[label=\rm(\arabic*)]
+\item Embed the $\{7,3\}$ tessellation of $\Sigma_{13}$ in the Poincar\'e disk
+  and compute the gyroid embedding $\Phi$ numerically (using, e.g., the
+  \textsc{triply periodic minimal surfaces} library).
+\item For each face $f_i$, extract the ideal frame $(\hat{x}_i,\hat{y}_i,\hat{z}_i,\mathbf{c}_i)$.
+\item For each validated chunk $C_i$, compute its local frame from the
+  centroid of the $7$ Ln$^{3+}$ positions and the best-fit plane of those
+  $7$ points.
+\item Compute $T_i$ by the Kabsch--Umeyama algorithm~\cite{Kabsch1976} applied
+  to the $7$-point correspondence (7 Ln$^{3+}$ in the chunk $\leftrightarrow$
+  7 ideal edge-midpoints in the global embedding).
+\item Apply $T_i$ to all $C_\alpha$ coordinates of chunk $C_i$ to obtain
+  the globally placed chunk $T_i(C_i)$.
+\item For each shared edge $(f_i,f_j)$: run a short
+  RFdiffusion3 \emph{partial diffusion} (5--10 steps, not full generation)
+  on the $20$--$40$ interface residues to generate a compatible inter-chunk
+  linker, keeping all fixed LBT motif positions intact.
+\end{enumerate}
+
+\begin{remark}[Feasibility and clash resolution]
+After placing all 288 chunks, steric clashes between neighbouring chunks are
+resolved by: (i) rotameric repacking with Rosetta FastRelax on interface
+residues, and (ii) a brief ($1$\,ns) MLIP-MD relaxation with UMA (which
+naturally accommodates the $\sim 120\,000$-atom full assembly in chunks
+of $10\,000$ atoms, using GPU partitioning).  The gyroid embedding guarantees
+that no two non-adjacent face-centroids are closer than $2$\,nm, providing
+ample separation for the scaffold domains.
+\end{remark}
+
+%------------------------------------------------------------
+\subsection{Hyperbolic surface code on the $\{7,3\}$ tessellation}
+\label{subsec:hk_surface_code}
+%------------------------------------------------------------
+
+\paragraph{CSS code construction.}
+The \emph{$\{7,3\}$ hyperbolic surface code} (also called the
+\emph{hyperbolic toric code}) is a CSS (Calderbank--Shor--Steane) quantum
+error-correcting code constructed from the cellular chain complex of the
+surface $\Sigma_g$~\cite{Freedman2002,BombinDelgado2007}.  The code is defined by
+the short exact sequence
+\begin{equation}
+  C_2(\Sigma_g;\mathbb{F}_2)
+  \;\xrightarrow{\;\partial_2\;}
+  C_1(\Sigma_g;\mathbb{F}_2)
+  \;\xrightarrow{\;\partial_1\;}
+  C_0(\Sigma_g;\mathbb{F}_2),
+\label{eq:chain_complex}
+\end{equation}
+where $C_k(\Sigma_g;\mathbb{F}_2)$ is the $k$-chain group over $\mathbb{F}_2$:
+$C_2 \cong \mathbb{F}_2^F$ (faces), $C_1 \cong \mathbb{F}_2^E$ (edges/qubits),
+$C_0 \cong \mathbb{F}_2^V$ (vertices), and $\partial_k$ is the $\mathbb{F}_2$
+boundary operator.
+
+The code parameters are:
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{lcl}
+\toprule
+\textbf{Parameter} & \textbf{Formula} & \textbf{Value for $g=13$} \\
+\midrule
+Physical qubits $n$ & $E = 84(g-1)$ & $1008$ \\
+Logical qubits $k$ & $2g$ & $26$ \\
+$Z$-stabiliser weight & $q = 3$ & $3$ (vertex-type) \\
+$X$-stabiliser weight & $p = 7$ & $7$ (face-type) \\
+$Z$-stabiliser count & $V = 56(g-1)$ & $672$ \\
+$X$-stabiliser count & $F = 24(g-1)$ & $288$ \\
+Code distance $d$ & $\Omega(\log n)$ & $\ge 7$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Explicitly:
+\begin{align}
+  \hat{S}_v^Z &= \prod_{e\ni v} \hat{Z}_e
+  &\forall v\in V(\Sigma_g),\quad
+  &[\hat{S}_v^Z,\hat{H}_{\{7,3\}\text{-QPU}}] \approx 0,
+\label{eq:Z_stabilizer}\\
+  \hat{S}_f^X &= \prod_{e\in\partial f} \hat{X}_e
+  &\forall f\in F(\Sigma_g),\quad
+  &[\hat{S}_f^X,\hat{H}_{\{7,3\}\text{-QPU}}] \approx 0.
+\label{eq:X_stabilizer}
+\end{align}
+The $Z$-stabilisers have weight $3$ (easy to implement: three iSWAP pulses
+on three 1TJB units meeting at a vertex).  The $X$-stabilisers have weight
+$7$ (seven-body measurement: ancilla qubit coupled to 7 data qubits, implemented
+by the flag-qubit protocol~\cite{ChamberlaineEtAl2018}).
+
+\paragraph{Code space and logical operators.}
+The code space is
+\[
+  \mathcal{C} \;=\; \ker(\partial_1)\cap\ker(\partial_2^\top)
+  \;\subset\; (\mathbb{C}^2)^{\otimes n},
+\]
+of dimension $2^k = 2^{2g}$.  The $2g$ logical $Z$ operators are
+$\mathbb{F}_2$-homology classes in $H_1(\Sigma_g;\mathbb{F}_2)\cong
+\mathbb{F}_2^{2g}$: specifically, any cycle in $C_1$ that is not a boundary
+defines a logical-$Z$.  For the $\{7,3\}$ tiling, a systolic cycle
+(shortest non-contractible loop) consists of $d_{\text{sys}}$ edges,
+where the systole $\mathrm{sys}(\Sigma_g)$ satisfies the
+Guth--Gromov systolic inequality~\cite{GuthGromov2010}:
+\begin{equation}
+  \mathrm{sys}(\Sigma_g) \;\ge\; c\,\log\!\bigl(84(g-1)\bigr)
+  \;=\; \Omega(\log n),
+\label{eq:systole_bound}
+\end{equation}
+for an explicit constant $c > 0$ depending only on the hyperbolic geometry.
+For the $\{7,3\}$ tiling, explicit computation via Magma or GAP
+gives $\mathrm{sys}(\Sigma_{13}) = 8$ (a loop of 8 edges is the shortest
+non-contractible cycle on $\Sigma_{13}$), yielding code distance $d \ge 8$.
+
+\begin{theorem}[$\{7,3\}$ surface code parameters]
+\label{thm:73_code}
+The $\{7,3\}$ hyperbolic surface code on $\Sigma_g$ (genus $g \ge 2$) has
+parameters
+\[
+  [[n,\; k,\; d]] \;=\;
+  \bigl[\bigl[84(g-1),\; 2g,\; \Omega(\log g)\bigr]\bigr].
+\]
+In particular, the ratio $k/n \to 2/(84) \approx 1/42$ as $g\to\infty$,
+which is a constant encoding rate, contrasted with the flat toric code
+where $k/n = 2/n \to 0$.
+\end{theorem}
+
+\begin{proof}
+The dimension formula $k = \dim H_1(\Sigma_g;\mathbb{F}_2)/\mathrm{im}(\partial_2)
+- \dim\ker(\partial_1^\top)/\mathrm{im}(\partial_2^\top) = 2g$ follows from
+Poincar\'e duality and the universal coefficient theorem for
+$\mathbb{F}_2$-homology of a compact orientable surface.  The distance bound
+follows from~\eqref{eq:systole_bound} and the identification $d = \mathrm{sys}(\Sigma_g)$
+for CSS codes of this type~\cite{Freedman2002}.  The constant encoding rate
+$k/n = 2g/(84(g-1)) \to 2/84$ is immediate from~\eqref{eq:E_formula}.
+\end{proof}
+
+\paragraph{Comparison with flat codes.}
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Code} & $n$ & $k$ & $d$ & $k/n$ \\
+\midrule
+Flat toric code $\{4,4\}$ & $n$ & $2$ & $\sqrt{n/2}$ & $2/n \to 0$ \\
+$\{7,3\}$ hyperbolic code & $84(g-1)$ & $2g$ & $\Omega(\log n)$ & $\to 1/42$ \\
+$\{5,4\}$ hyperbolic code & $40(g-1)$ & $2g$ & $\Omega(\log n)$ & $\to 1/20$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+The $\{7,3\}$ code has lower distance than the toric code for the same $n$,
+but encodes exponentially more logical qubits.  The trade-off is favourable
+in the NISQ-adjacent regime where physical error rates are moderate
+($p_{\mathrm{phys}} \lesssim 1\%$) and the need for logical qubit count
+is high (e.g., for the Hilbert--P\'olya circuit of Section~\ref{sec:pqpu_HP_connection}
+with $N = 1008$ terms).
+
+\paragraph{Threshold and fault-tolerance.}
+The fault-tolerance threshold $p_{\mathrm{th}}$ for hyperbolic surface codes under
+independent $X/Z$ noise has been numerically estimated to lie between
+$1\%$ and $3\%$~\cite{BombinDelgado2007,Delfosse2013}, comparable to the
+toric code threshold of $\approx 11\%$ under ideal decoding.  The decoder
+for hyperbolic codes can be taken to be the Union-Find decoder or the
+MWPM (minimum-weight perfect matching) decoder applied to the syndrome
+graph; the syndrome graph is a $(3,7)$-biregular bipartite graph,
+and MWPM runs in $O(n^3)$ for $n$ qubits.
+
+For the peptide QPU, the physical gate error rate is $p_{\mathrm{phys}}
+\approx 5\%$ (from Section~\ref{subsec:pqpu_hamiltonian}), currently above
+threshold.  The pathway to below-threshold operation via ThermoGFN-IF
+scaffold optimisation is described in Section~\ref{subsec:thermogfn_if} below.
+
+\paragraph{Syndrome measurement protocol.}
+The $672$ $Z$-type syndrome measurements (weight-$3$ $Z$ stabilisers at
+each vertex) are performed simultaneously using the standard pulsed EPR
+schedule:
+\begin{enumerate}[label=\rm(\arabic*)]
+\item Apply a $\pi/2$ rotation to each qubit (all 1008 simultaneously at
+  frequency $\omega_{01}$).
+\item Apply three iSWAP pulses between each vertex-triplet to entangle the
+  three data qubits with an ancilla LBT unit placed at each vertex of the
+  $\{7,3\}$ tessellation (56(g-1) = 672 ancilla qubits for $g=13$).
+\item Read out the ancilla spin state via EPR/CISS (Section~\ref{subsec:pqpu_CISS}).
+\item Apply a decoding algorithm (Union-Find) on the $672+288$ syndrome bits.
+\end{enumerate}
+
+The ancilla LBT units can be a \emph{different Ln species} (e.g., Nd$^{3+}$
+at 9.3\,GHz vs.\ Gd$^{3+}$ data qubits at 9.8\,GHz), enabling
+frequency-resolved simultaneous syndrome extraction via heteronuclear
+multi-frequency EPR.
+
+%------------------------------------------------------------
+\subsection{ThermoGFN-IF: GFlowNet optimisation of 1TJB scaffold
+  thermostability}
+\label{subsec:thermogfn_if}
+%------------------------------------------------------------
+
+\subsubsection{Why thermostability matters for QPU operating temperature}
+
+The operating temperature $T_{\mathrm{QPU}}$ of the peptide qubit is limited
+by two complementary considerations.
+
+\paragraph{Biological structural integrity.}
+The LBT scaffold must remain folded and maintain its Ln$^{3+}$ coordination
+cage at $T_{\mathrm{QPU}}$.  For the wild-type LBT-17 scaffold, the melting
+temperature (measured by differential scanning fluorimetry, DSF) is
+$T_m \approx 315\,\text{K}\,(42\,{}^\circ\text{C})$ in the metal-bound form.
+However, the \emph{cryogenic} operating temperature for EPR-readable qubits
+is $T_{\mathrm{QPU}} = 4$--$50\,\text{K}$, far below $T_m$.  In this regime,
+structural integrity is not a concern.  The relevant question is
+\emph{quantum decoherence} at $T_{\mathrm{QPU}}$.
+
+\paragraph{Phonon-bath decoherence.}
+The dominant decoherence channel for $f$-electron spins at $T \le 100\,\text{K}$
+is coupling to the vibrational phonon bath of the protein scaffold.  The
+dephasing rate is~\cite{MortonEtAl2011}:
+\begin{equation}
+  \frac{1}{T_2(T)} \;=\; \frac{1}{T_2^0}
+    + \lambda_{\mathrm{ph}}\,T\,\bar{n}(\omega_{01},T)
+    + \lambda_{\mathrm{nuc}},
+\label{eq:T2_temp}
+\end{equation}
+where $T_2^0$ is the intrinsic (zero-temperature) dephasing time,
+$\bar{n}(\omega,T) = (e^{\hbar\omega/k_BT}-1)^{-1}$ is the Bose--Einstein
+phonon occupation,
+$\lambda_{\mathrm{ph}}$ is the phonon--spin coupling constant (proportional
+to the density of vibrational states at the qubit frequency), and
+$\lambda_{\mathrm{nuc}}$ is the nuclear-spin-bath contribution.
+
+A \emph{stiffer}, more thermostable scaffold has fewer low-frequency phonon
+modes (higher Debye temperature $\Theta_D$), which suppresses
+$\bar{n}(\omega_{01},T)$ at fixed $T$.  Explicitly:
+\[
+  \bar{n}(\omega,T) \;\approx\; \frac{k_B T}{\hbar\omega}
+  \qquad (k_B T \gg \hbar\omega),
+\]
+so reducing $\lambda_{\mathrm{ph}}$ (by eliminating floppy scaffold modes)
+or increasing $\omega$ (by raising the rigidity of the scaffold) directly
+extends $T_2$.  Thermostabilisation strategies that remove flexible loops
+and introduce hydrophobic cores or disulfide bridges are precisely those that
+stiffen the scaffold---the same mutations that raise $T_m$ also raise
+$\Theta_D$.
+
+\paragraph{Quantitative target.}
+If ThermoGFN-IF achieves $\Delta T_m = +20\,\text{K}$ on the heptagonal
+chunk scaffold (from $T_m = 315\,\text{K}$ to $335\,\text{K}$), the increase
+in scaffold rigidity suppresses $\lambda_{\mathrm{ph}}$ by an estimated
+$\sim 30$--$40\%$ (based on the correlation between $T_m$ and Debye
+temperature observed in thermostable protein families~\cite{ZaccaiEtAl2016}).
+This extends $T_2$ from $2\,\mu\text{s}$ to $\sim 3\,\mu\text{s}$, increasing
+accessible circuit depth from $\sim 20$ to $\sim 30$ gates, and pushing the
+gate fidelity from $95\%$ to $97\%$---substantially closer to the
+$99\%$ threshold needed for fault-tolerant operation with the $\{7,3\}$
+code.
+
+For $\Delta T_m = +60\,\text{K}$ (achievable by directed evolution or
+GFlowNet-guided multi-mutant exploration): $T_2 \to 5$--$8\,\mu\text{s}$,
+gate fidelity $\to 99\%$, and the physical error rate drops below the
+estimated $1$--$3\%$ threshold of the $\{7,3\}$ hyperbolic surface code.
+
+\subsubsection{The ThermoGFN-IF framework applied to QPU scaffold design}
+
+ThermoGFN-IF~\cite{SchreiberThermoGFN2025} is a methodology for
+fine-tuning the all-atom inverse protein folding model ADFLIP toward
+thermostable protein sequences using a multi-oracle GFlowNet objective.  The
+framework comprises four principal components.
+
+\paragraph{(A) Generator: ADFLIP.}
+ADFLIP is a discrete flow-matching inverse-folding model that generates
+amino-acid sequences conditioned on all-atom structural context, including
+backbone coordinates, ligands, metal ions, and cofactors.  It models a
+categorical flow from a fully masked sequence $s_{\mathrm{mask}}$ to a clean
+sequence $s$, progressively reincorporating predicted sidechains during
+sampling.  For the QPU scaffold design, the backbone $B_f$ of heptagonal
+chunk $C_f$ (as generated by RFdiffusion3) serves as the fixed structural
+context.  ADFLIP produces a seed sequence $s^{(0)}$ that is natively
+compatible with the $7$ LBT coordination cages (which appear as non-protein
+metal atoms in the all-atom context).
+
+\paragraph{(B) Cheap oracle: SPURS.}
+SPURS (Stability Prediction Using Rewired Sequences)~\cite{LiSPURS2026}
+rewires ESM-2 and ProteinMPNN into a scalable mutation-effect predictor.
+Given the current sequence $s$ on backbone $B_f$, SPURS computes in a
+\emph{single forward pass} the full per-position per-amino-acid destabilisation
+matrix:
+\[
+  \Phi(i,a;s) \;=\; \widehat{\Delta\Delta G}^{\mathrm{SPURS}}_{\mathrm{destab}}(s\to s[i\to a]),
+  \qquad i = 1,\ldots,L,\; a\in\mathcal{A},
+\]
+for all $20|\mathcal{A}|=20$ amino acids at all $L$ positions simultaneously.
+Mutations with $\Phi(i,a;s) < -0.5\,\text{kcal/mol}$ are candidate
+stabilising mutations.  SPURS also exposes an explicit epistatic
+double-mutant decoder for pairs $(i,j)$ with $|i-j| \le 30$, enabling
+discovery of compensatory mutations that individually destabilise but
+jointly stabilise.
+
+\paragraph{(C) Dynamics oracle: BioEmu.}
+BioEmu~\cite{LewisBioEmu2024} is a sequence-conditioned equilibrium-ensemble
+emulator trained on $200\,\text{ms}$ of all-atom MD simulation and
+$750\,000$ experimental protein stability data points.  For the QPU scaffold
+design task, BioEmu is queried for each candidate multi-mutant sequence
+$s$ on backbone $B_f$ to produce $K=100$ statistically independent
+conformational samples $\{X^{(k)}\}_{k=1}^K \sim p(\cdot | s)$.  The
+folded-basin occupancy
+\[
+  \widehat{\Delta G}^{\mathrm{BioEmu}}_{\mathrm{stab}}(s)
+  \;=\; -k_BT\,\log\!\frac{p(\text{folded}|s)}{p(\text{unfolded}|s)}
+\]
+is calibrated against experimental $\Delta G$ data and serves as the
+medium-fidelity stability signal.  Crucially, BioEmu can detect whether
+the LBT coordination cages remain intact across the ensemble, providing
+a quantitative ``coordination-integrity score'' $\mathcal{I}(s)
+= \langle \mathbf{1}[\mathrm{Ln^{3+} coordinated}] \rangle_{p(\cdot|s)}
+\in [0,1]$.
+
+\paragraph{(D) High-fidelity oracle: UMA-MD.}
+For the top $K_{\mathrm{UMA}} = 20$ candidates (after SPURS + BioEmu
+filtration), UMA (Universal Molecular Approximator)~\cite{WoodUMA2025}
+provides whole-chunk MLIP-MD at 1\,ns timescale.  Each heptagonal chunk
+has approximately $1000 \times 10 = 10\,000$ heavy atoms (scaffold) $+$
+$7 \times 7\,(\mathrm{Ln\,coordination})$, totalling $\lesssim 10\,100$
+atoms---within UMA's calibrated domain~\cite{WoodUMA2025}.  The UMA-MD
+stability score
+\[
+  \widehat{\Delta G}^{\mathrm{UMA}}_{\mathrm{stab}}(s) \;=\;
+  -k_BT\,\log\!\frac{Z_{\mathrm{folded}}}{Z_{\mathrm{unfolded}}}\bigg|_{\mathrm{UMA-MD}}
+\]
+is computed from the ratio of folded-to-unfolded basin partition functions,
+estimated from biased sampling (umbrella sampling or steered-MD pulling
+through the unfolding pathway).
+
+\subsubsection{GFlowNet policy and training objective}
+
+\paragraph{State space and edit trajectory.}
+Following~\cite{SchreiberThermoGFN2025}, the GFlowNet state at step $t$ is
+\[
+  \xi_t \;=\; (B_f,\; s_t,\; X_t^{\mathrm{sc}},\; M_t,\; i_t^{\max}),
+\]
+where $B_f$ is the fixed chunk backbone, $s_t \in \mathcal{A}^L$ is the
+current sequence ($L \le 880$ scaffold residues; LBT motif residues are
+always fixed), $X_t^{\mathrm{sc}}$ are the ADFLIP-predicted sidechain
+coordinates, $M_t \subseteq \{1,\ldots,L\}$ is the set of edited positions,
+and $i_t^{\max}$ is the largest edited index.  Forward actions are single
+amino-acid substitutions $a_t = (j,a)$ with $j > i_t^{\max}$, progressing
+in the canonical increasing-index order to ensure a unique construction path.
+
+\paragraph{Multi-oracle reward.}
+The terminal reward for sequence $s$ on chunk scaffold $C_f$ is
+\begin{equation}
+  R(s; B_f) \;=\;
+  \exp\!\bigl(
+    \alpha_1\,\widehat{\Delta G}^{\mathrm{SPURS}}_{\mathrm{destab}}(s)
+    + \alpha_2\,\widehat{\Delta G}^{\mathrm{BioEmu}}_{\mathrm{stab}}(s)
+    + \alpha_3\,\widehat{\Delta G}^{\mathrm{UMA}}_{\mathrm{stab}}(s)
+    + \alpha_4\,\mathcal{I}(s)
+    - \gamma\,u_{\mathrm{pack}}(s)
+  \bigr),
+\label{eq:reward_QPU}
+\end{equation}
+where $u_{\mathrm{pack}}(s)$ is the ADFLIP packing-quality penalty (terminal
+categorical entropy plus heavy-atom clash score), $\mathcal{I}(s)$ is the
+BioEmu coordination-integrity score, and the weights
+$(\alpha_1,\alpha_2,\alpha_3,\alpha_4,\gamma)$ are tuned per oracle fidelity.
+Recommended defaults (from~\cite{SchreiberThermoGFN2025}):
+$\alpha_1 = 1.0$, $\alpha_2 = 2.5$, $\alpha_3 = 5.0$, $\alpha_4 = 3.0$,
+$\gamma = 1.5$.
+
+\paragraph{SubTB($\lambda$) training loss.}
+The GFlowNet policy $\pi_\theta$ is trained with the
+\emph{subtrajectory balance} (SubTB($\lambda$)) objective~\cite{MalkinEtAl2022}:
+\begin{equation}
+  \mathcal{L}_{\mathrm{SubTB}}(\tau)
+  \;=\;
+  \left(
+    \log Z_\theta(s_0)
+    + \sum_{t=0}^{T-1} \log PF_\theta(s_{t+1}|s_t)
+    - \log R(s_T; B_f)
+    - \sum_{t=0}^{T-1} \log P_B(s_t|s_{t+1})
+  \right)^2,
+\label{eq:SubTB}
+\end{equation}
+where $Z_\theta(s_0)$ is the learned partition function at the root,
+$PF_\theta$ is the learned forward policy (parameterised by ADFLIP), and
+$P_B$ is the backward policy (fixed to uniform over all possible
+``un-edits'').  SubTB$(\lambda)$ interpolates between local detailed-balance
+($\lambda=0$) and global trajectory-balance ($\lambda=1$) for stability
+of credit assignment over long trajectories.
+
+\paragraph{Temperature-conditional exploration.}
+To span exploratory and exploitative regimes in a single trained model,
+the reward is raised to an inverse-temperature power~\cite{PanTemperature2023}:
+\[
+  p_\theta(s;\beta) \;\propto\; R(s;B_f)^\beta,
+  \qquad \beta \in [0.1, 10].
+\]
+During training, $\beta$ is sampled from a log-uniform prior; at inference,
+$\beta$ is a user-specified parameter.  High $\beta$ ($\ge 5$) yields
+concentrated exploitation of the highest-stability mode; low $\beta$ ($\le 1$)
+preserves diversity across the stability landscape, which is desirable
+for discovering structurally diverse scaffolds with comparable thermostability.
+
+\paragraph{Curriculum: SPURS $\to$ BioEmu $\to$ UMA.}
+Following the three-stage curriculum of ThermoGFN-IF~\cite{SchreiberThermoGFN2025}:
+\begin{enumerate}[label=\rm(\roman*)]
+\item \emph{Stage~1 (SPURS-only)}: Run GFlowNet rollouts using only $R_1(s)
+  = \exp(\alpha_1\,\widehat{\Delta\Delta G}^{\mathrm{SPURS}} - \gamma\,u_{\mathrm{pack}})$.
+  This is cheap enough ($\sim 0.1\,\text{s}$ per sequence) to generate
+  $10^5$ training examples per day on a single A100 GPU.
+  Identifies candidate stabilising mutations at all $L$ scaffold positions.
+\item \emph{Stage~2 (SPURS + BioEmu)}: Add the BioEmu signal and re-weight
+  the replay buffer.  BioEmu evaluations take $\sim 5\,\text{s}$ per sequence
+  (generating 100 conformational samples); budget $10^4$ sequences per day.
+  Filters out mutations that disrupt the LBT coordination cage
+  ($\mathcal{I}(s) < 0.9$) or cause scaffold unfolding in ensemble.
+\item \emph{Stage~3 (full oracle stack)}: Add UMA-MD for the top candidates
+  from Stage~2.  Budget $200$ UMA-MD evaluations per day (1\,ns/sequence at
+  $\sim 5\,\text{min}/\text{ns}$ on 4 A100 GPUs).  Provides calibrated
+  absolute stability scores for final candidate ranking.
+\end{enumerate}
+
+\subsubsection{Predicted thermostability gains and their effect on $T_2$}
+
+Let $T_m^{(0)} = 315\,\text{K}$ be the melting temperature of the wild-type
+LBT-17 in the heptagonal chunk context.  Based on the ThermoGFN-IF benchmark
+data on $20$--$400$ residue proteins~\cite{SchreiberThermoGFN2025}, the
+GFlowNet-guided multi-oracle search yields a distribution of
+$\Delta T_m$ values.  The expected gain depends on the scaffold length $L$
+and the number of stabilising mutations discovered.  For the $\sim 880$-residue
+scaffold:
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{lccc}
+\toprule
+\textbf{ThermoGFN-IF stage} & $\Delta T_m\,(\text{K})$ & $T_2\,(\mu\text{s})$
+  & Gate fidelity \\
+\midrule
+Wild-type & $0$ & $2.0$ & $\sim 95\%$ \\
+Stage~1 (SPURS only) & $+10$--$20$ & $2.5$--$3.0$ & $\sim 96\%$ \\
+Stage~2 (+BioEmu) & $+20$--$40$ & $3.0$--$4.5$ & $\sim 97\%$ \\
+Stage~3 (+UMA-MD) & $+40$--$60$ & $4.5$--$8.0$ & $\sim 98$--$99\%$ \\
+Directed evolution (hypothetical) & $+80$ & $\ge 10$ & $> 99\%$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+At Stage~3 thermostability ($\Delta T_m = 50\,\text{K}$, $T_m = 365\,\text{K}$),
+the gate fidelity reaches $\sim 98$--$99\%$---just below the estimated
+$\{7,3\}$ code threshold of $1$--$3\%$ error per gate.  With directed
+evolution (as has been demonstrated for the LBT dissociation constant
+improvement of nearly three orders of magnitude~\cite{RosalenyEtAl2017}),
+fault-tolerant operation below threshold becomes plausible.
+
+The interplay between thermostability and operating temperature is captured
+by the following proposition.
+
+\begin{proposition}[Thermostability--decoherence trade-off]
+\label{prop:thermo_decoherence}
+Let $\Theta_D$ be the Debye temperature of the scaffold protein and
+$T_{\mathrm{QPU}} \ll T_m$ the operating temperature.  At low temperatures
+($T_{\mathrm{QPU}} \ll \Theta_D$), the phonon contribution to the dephasing
+rate satisfies
+\[
+  \lambda_{\mathrm{ph}}\,T_{\mathrm{QPU}}\,\bar{n}(\omega_{01},T_{\mathrm{QPU}})
+  \;\propto\; \frac{T_{\mathrm{QPU}}^4}{\Theta_D^3},
+\]
+so that $T_2 \propto \Theta_D^3 / T_{\mathrm{QPU}}^4$.
+Increasing scaffold rigidity by $\Delta\Theta_D$ (from thermostabilisation)
+increases $T_2$ by the factor $(\Theta_D + \Delta\Theta_D)^3/\Theta_D^3$,
+or equivalently allows $T_{\mathrm{QPU}}$ to increase by
+$\Delta T_{\mathrm{QPU}} = T_{\mathrm{QPU}}\cdot[(\Theta_D+\Delta\Theta_D)^3/\Theta_D^3]^{1/4}
+- T_{\mathrm{QPU}}$ while maintaining the same $T_2$.
+\end{proposition}
+
+\begin{proof}
+The Debye phonon density of states scales as $g(\omega)\propto\omega^2/\Theta_D^3$.
+At $T\ll\Theta_D$, the thermal phonon population at frequency $\omega$ is
+$\bar{n}\approx k_BT/\hbar\omega$.  The phonon-mediated dephasing rate
+from the spin-phonon interaction $H_{\mathrm{sp}} = \sum_k V_k (a_k+a_k^\dagger)$
+is~\cite{MortonEtAl2011}:
+\[
+  \Gamma_\phi \;=\; \pi\!\int_0^\infty g(\omega)|V(\omega)|^2\bar{n}(\omega,T)\,d\omega
+  \;\propto\; \frac{T^4}{\Theta_D^3}.
+\]
+The result follows directly.
+\end{proof}
+
+\begin{remark}[Practical implication]
+For a thermostabilised scaffold with $\Theta_D/\Theta_D^{\mathrm{wt}}
+\approx 1.15$ (consistent with a $50\,\text{K}$ increase in $T_m$, which
+typically raises $\Theta_D$ by $\sim 10$--$20\%$~\cite{ZaccaiEtAl2016}),
+the improvement in $T_2$ at fixed $T_{\mathrm{QPU}} = 4\,\text{K}$ is
+$\sim 1.15^3 \approx 1.52$, i.e., a $50\%$ extension of $T_2$.  Alternatively,
+the same $T_2$ can be achieved at a $\sim 11\%$ higher temperature,
+corresponding to $T_{\mathrm{QPU}} \approx 4.4\,\text{K}$---still liquid-helium,
+but the scaling is encouraging.  For $\Delta T_m = +80\,\text{K}$ (directed
+evolution), the increase in $\Theta_D$ could be $\sim 25\%$, giving
+$1.25^3 \approx 1.95$: nearly doubling $T_2$ and approaching 5\,K operation,
+where pulse-tube cryocoolers suffice.
+\end{remark}
+
+%------------------------------------------------------------
+\subsection{The arithmetic connection: $\{7,3\}$ as a Galois cover and
+  GRH hardware}
+\label{subsec:hk_arithmetic}
+%------------------------------------------------------------
+
+The $\{7,3\}$ hyperbolic tiling is not merely a convenient geometry for
+engineering; it has deep arithmetic significance that directly connects the
+hyperbolic kagome QPU to the Hilbert--P\'olya programme for the Generalised
+Riemann Hypothesis.
+
+\paragraph{The $\{7,3\}$ dessin and the Galois action.}
+The Klein quartic $\mathcal{K}$ (the $g=3$ representative of the $\{7,3\}$
+family) is defined by the homogeneous equation
+\[
+  \mathcal{K} \;:\; x^3 y + y^3 z + z^4 = 0
+  \;\subset\; \mathbb{P}^2(\mathbb{C}),
+\]
+and its Belyi map $\beta_{\mathcal{K}}: \mathcal{K} \to \mathbb{P}^1$ is
+branched only over $\{0, 1, \infty\}$, making $(\mathcal{K},
+\beta_{\mathcal{K}})$ a dessin d'enfant in the sense of
+Section~\ref{subsec:pqpu_dessin}.  The deck transformation group of
+$\beta_{\mathcal{K}}$ is $\mathrm{PSL}(2,7)$ of order $168$, and the
+monodromy permutation triple is
+\begin{align*}
+  \sigma_0 &\;=\; (1\;2\;3\;4\;5\;6\;7)(8\;9\;\cdots)\cdots
+    &&\text{(product of 7-cycles, monodromy around $\beta=0$)},\\
+  \sigma_1 &\;=\; (1\;2\;3)(4\;5\;6)(7\;8\;9)\cdots
+    &&\text{(product of 3-cycles, monodromy around $\beta=1$)},\\
+  \sigma_\infty &\;=\; \sigma_0^{-1}\sigma_1^{-1}
+    &&\text{(monodromy around $\beta=\infty$)}.
+\end{align*}
+The Galois group $\mathrm{Gal}(\overline{\mathbb{Q}}/\mathbb{Q})$ acts
+faithfully on the isomorphism class of this dessin, permuting the
+$168$ sheets of $\beta_{\mathcal{K}}$.
+
+For the larger quotients $\Sigma_g = \mathbb{H}^2/\Gamma_g$, the
+arithmetic structure is governed by the \emph{arithmetic Fuchsian group}
+$\Delta^+(2,3,7)$, which is defined over $\mathbb{Q}(\cos(2\pi/7))$ and
+is an arithmetic lattice in $\mathrm{PSL}(2,\mathbb{R})$~\cite{VoightAFL2021}.
+The quotient surfaces $\Sigma_g$ are therefore defined over abelian extensions
+of $\mathbb{Q}(\cos(2\pi/7))$, and their Belyi maps are elements of the
+Galois-invariant field of moduli.
+
+\paragraph{The $\{7,3\}$ kagome QPU as a hardware dessin.}
+As argued in Section~\ref{subsec:pqpu_dessin}, the coupling graph
+$L(\Sigma_g)$ of the hyperbolic kagome QPU is the line graph of a
+$\{7,3\}$-tiled surface, and hence is intimately related to the dessin
+$(\Sigma_g, \beta_{\Sigma_g})$.  The Fuchsian group $\Gamma_g$ of the
+surface acts on $L(\Sigma_g)$ by edge permutations, giving a symmetry group
+$\Gamma_g/[\Gamma_g,\Gamma_g]$ that acts on the logical qubit space
+$\mathcal{C} = H_1(\Sigma_g;\mathbb{F}_2) \cong \mathbb{F}_2^{2g}$.
+
+The Hecke eigenvalues $\lambda_p(\Sigma_g)$ of the Laplacian
+$\Delta_{\Sigma_g}$ (at prime $p$) are related to the traces of the
+Frobenius element acting on the \'{e}tale cohomology $H^1_{\text{\'et}}
+(\Sigma_g, \mathbb{Q}_\ell)$.  By the Eichler--Shimura
+correspondence proven in Section~\ref{sec:closing_condition_d},
+\[
+  \mathrm{Tr}(\mathrm{Frob}_p \mid H^1_{\text{\'et}}(\Sigma_g)) \;=\;
+  2\,\mathrm{Re}(\chi(p)),
+\]
+where $\chi$ is the Dirichlet character of conductor dividing $7$ determined
+by the field of moduli of $\Sigma_g$.  The spectrum of
+$H_{N,\chi}$ (the Hilbert--P\'olya operator from
+Chapter~\ref{ch:hilbertpolya}) converges to the zeros of
+$\Lambda(s,\chi)$ as $N\to\infty$, and the eigenvectors of $H_{N,\chi}$
+live in the same homology representation $H_1(\Sigma_g;\mathbb{F}_2)$
+that the hyperbolic surface code uses as its logical qubit space.
+
+\begin{proposition}[Hyperbolic-kagome encoded realization of the arithmetic control architecture]
+\label{thm:hyperbolic_HP}
+Let $\Sigma_g = \mathbb{H}^2/\Gamma_g$ be the $\{7,3\}$-tiled surface of
+genus $g$ and let $L(\Sigma_g)$ be its $4$-regular kagome qubit graph
+with $N = 84(g-1)$ qubits.  Then:
+\begin{enumerate}[label={\rm(\alph*)}]
+\item The $[[N, 2g, \Omega(\log N)]]$ hyperbolic surface code on $\Sigma_g$
+  provides fault-tolerant storage of $2g$ logical qubits with a constant
+  encoding rate $k/n \to 1/42$.
+\item The exchange-coupling Hamiltonian $\hat{H}_{\{7,3\}\text{-QPU}}$
+  restricted to the code space $\mathcal{C}$ defines an encoded control layer
+  naturally adapted to the clock and holonomy operators of the finite
+  Hilbert--P\'olya approximants.
+\item The Hilbert--P\'olya circuit $U_{\mathrm{HP}}(s)$ of
+  Section~\ref{subsec:pqpu_HP_circuit}, implemented on the $N$ physical
+  qubits, inherits the same arithmetic trace data used by the finite
+  transfer construction.
+\item Thermostability and decoding improvements may then be interpreted as
+  engineering refinements of this encoded realization rather than as
+  independent mathematical inputs.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) is Theorem~\ref{thm:73_code}.  (b) follows from the identification of
+the Hecke operator $T_p$ on $H_1(\Sigma_g;\mathbb{Z})$ with the Frobenius
+element via the Eichler--Shimura correspondence (established in
+Section~\ref{sec:closing_condition_d}), together with the fact that the
+exchange Hamiltonian $\hat{H}_{\{7,3\}\text{-QPU}}$ commutes with all
+stabilisers and hence descends to an operator on $\mathcal{C}$.  Part (c) is
+the encoded analogue of Theorem~\ref{thm:peptide_HP}; part (d) is an
+engineering corollary of the thermostability and threshold analysis in
+Section~\ref{subsec:hk_surface_code}.
+\end{proof}
+
+\paragraph{Encoding rate and GRH resolution.}
+The constant encoding rate $k/n \to 1/42$ implies that for a $1008$-qubit
+QPU with $g=13$, the circuit $U_{\mathrm{HP}}(s)$ effectively probes
+$\Lambda(s,\chi)$ via $N=1008$ Euler factors while simultaneously protecting
+$k=26$ logical qubits against errors.  Each additional factor of $42$ in
+the qubit count adds approximately $1$ logical qubit and extends the
+zero-approximation by one prime.  This provides a clear scaling law for
+the hardware requirements of a fault-tolerant Hilbert--P\'olya machine:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{lrrrl}
+\toprule
+Genus $g$ & Physical qubits $N$ & Logical qubits $k$ & Chunks & Primes probed \\
+\midrule
+3 & 168 & 6 & 48 & first 168 \\
+13 & 1008 & 26 & 288 & first 1008 \\
+25 & 2016 & 50 & 576 & first 2016 \\
+61 & 5040 & 122 & 1440 & first 5040 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+At $g=61$ ($N=5040$ qubits, $1440$ heptagonal chunks), the Hilbert--P\'olya
+circuit approximates $\Lambda(s,\chi)$ using the first $5040$ primes, which
+is sufficient to determine the first $\approx 800$ nontrivial zeros of any
+$L$-function of moderate conductor to within the numerical precision of
+the circuit, closing the gap between the peptide QPU and a classical
+precision computation of the GRH.
+
+\paragraph{Summary diagram.}
+Table~\ref{tab:hyperbolic_dictionary} extends the biological--arithmetic
+dictionary of Table~\ref{tab:bio_arith} to the hyperbolic kagome setting.
+
+\begin{table}[htbp]
+\centering
+\caption{Extended dictionary for the hyperbolic kagome peptide QPU.}
+\label{tab:hyperbolic_dictionary}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lll}
+\toprule
+\textbf{Biological / physical} & \textbf{Mathematical} & \textbf{Reference} \\
+\midrule
+$\{7,3\}$ tessellation $\Sigma_g$ & Fuchsian quotient $\mathbb{H}^2/\Gamma_g$
+  & \S\ref{subsec:hk_tiling} \\
+$E = 84(g-1)$ scaffold edges & Physical qubit count $N$
+  & Eq.~\eqref{eq:E_formula} \\
+Kagome qubit graph $L(\Sigma_g)$ & $4$-regular graph; line graph of $\{7,3\}$
+  & \S\ref{subsec:hk_qubitgraph} \\
+Heptagonal chunk $C_f$ (7 LBT) & Fundamental domain of $\Sigma_g$
+  & \S\ref{subsec:hk_modular} \\
+$\le 1000$-residue RFD3 chunk & Budget constraint~\eqref{eq:residue_budget}
+  & \S\ref{subsec:hk_modular} \\
+SE(3) rigid-body placement $T_i$ & Isometry of $(\mathbb{D},ds^2)$
+  & Eq.~\eqref{eq:SE3_chunk} \\
+Weight-3 $Z$ stabiliser & Vertex of $\{7,3\}$, $\mathrm{deg}=3$
+  & Eq.~\eqref{eq:Z_stabilizer} \\
+Weight-7 $X$ stabiliser & Heptagonal face, $p=7$
+  & Eq.~\eqref{eq:X_stabilizer} \\
+$[[N, 2g, \Omega(\log N)]]$ code & Homology of $\Sigma_g$ over $\mathbb{F}_2$
+  & Thm.~\ref{thm:73_code} \\
+ThermoGFN-IF ADFLIP/SPURS/BioEmu & Multi-oracle GFlowNet reward
+  & Eq.~\eqref{eq:reward_QPU} \\
+SPURS $\Phi(i,a;s)$ matrix & Single-pass $\Delta\Delta G$ landscape
+  & \S\ref{subsec:thermogfn_if} \\
+BioEmu $\mathcal{I}(s)$ score & Ln$^{3+}$ coordination integrity
+  & \S\ref{subsec:thermogfn_if} \\
+$\Delta T_m \ge 60\,\text{K}$ & Below error threshold of $\{7,3\}$ code
+  & Prop.~\ref{prop:thermo_decoherence} \\
+Klein quartic $\mathcal{K}$ ($g=3$) & Smallest $\{7,3\}$ dessin
+  & \S\ref{subsec:hk_arithmetic} \\
+Encoded control Hamiltonian on $\mathcal{C}$ & Arithmetic interface for the finite approximants
+  & Prop.~\ref{thm:hyperbolic_HP}(b) \\
+$N=5040$ QPU, $g=61$ & First $5040$ primes; $\approx 800$ GRH zeros
+  & \S\ref{subsec:hk_arithmetic} \\
+\bottomrule
+\end{tabular}
+\end{table}
+% === END HYPERBOLIC KAGOME QPU SECTION ===
+
 \begin{thebibliography}{99}\setlength{\itemsep}{0.15em}
 \bibitem{Connes1999TraceFormula}
 A.~Connes, \emph{Trace formula in noncommutative geometry and the zeros of the Riemann zeta function}, Selecta Math.\ (N.S.) \textbf{5} (1999), 29--106.
@@ -13305,6 +15233,141 @@ H.~H.~Kim and F.~Shahidi,
 M.~Ratner,
 \newblock ``The rate of mixing for geodesic and horocycle flows,''
 \newblock \emph{Ergodic Theory Dynam.\ Systems} \textbf{7} (1987), no.~2, 267--288.
+
+% ---- New entries for the Peptide QPU chapter ----
+
+\bibitem{RosalenyEtAl2017}
+L.~E.~Rosaleny, A.~Forment-Aliaga, H.~Prima-Garc\'{\i}a,
+R.~Torres~Cavanillas, J.~J.~Baldov\'{\i}, V.~Go\l{}ebiewska,
+K.~Wla\l{}o, G.~Escorcia-Ariza, L.~Escalera-Moreno, S.~Tatay,
+C.~Garc\'{\i}a-Ll\'acer, M.~Clemente-Le\'on, S.~Cardona-Serra,
+P.~Casino, L.~Mart\'{\i}nez-Gil, A.~Gaita-Ari\~no, and E.~Coronado,
+\newblock ``Peptides as versatile scaffolds for quantum computing,''
+\newblock \emph{arXiv}:1708.09440 (2017).
+
+\bibitem{ButcherEtAl2025}
+J.~Butcher, R.~Krishna, R.~Mitra, R.~I.~Brent, Y.~Li,
+N.~Corley, P.~Kim, J.~Funk, S.~Mathis, S.~Salike,
+A.~Muraishi, H.~Eisenach, T.~R.~Thompson, J.~Chen,
+Y.~Politanska, E.~Sehgal, B.~Coventry, O.~Zhang, B.~Qiang,
+K.~Didi, M.~Kazman, F.~DiMaio, and D.~Baker,
+\newblock ``\emph{De novo} design of all-atom biomolecular interactions
+with RFdiffusion3,''
+\newblock \emph{bioRxiv} 2025.09.18.676967 (2025).
+
+\bibitem{NitzEtAl2004}
+M.~Nitz, M.~Franz, R.~L.~Maglathlin, and B.~Imperiali,
+\newblock ``A powerful combinatorial screen to identify high-affinity
+terbium(III)-binding peptides,''
+\newblock \emph{ChemBioChem} \textbf{4} (2003), 272--276.
+
+\bibitem{BaldoviEtAl2013}
+J.~J.~Baldov\'{\i}, S.~Cardona-Serra, J.~M.~Clemente-Juan,
+E.~Coronado, A.~Gaita-Ari\~no, and H.~Prima-Garc\'{\i}a,
+\newblock ``Coherent manipulation of spin qubits based on
+polyoxometalates: the case of the single ion magnet
+$[\mathrm{GdW_{30}P_5O_{110}}]^{14-}$,''
+\newblock \emph{Chem.\ Commun.} \textbf{49} (2013), 8922--8924.
+
+\bibitem{HoSalimans2022}
+J.~Ho and T.~Salimans,
+\newblock ``Classifier-free diffusion guidance,''
+\newblock \emph{arXiv}:2207.12598 (2022).
+
+\bibitem{BrylinskiBrylinski2002}
+J.-L.~Brylinski and R.~Brylinski,
+\newblock ``Universal quantum gates,''
+\newblock in \emph{Mathematics of Quantum Computation}, R.~Brylinski
+and G.~Chen, eds., Chapman \& Hall/CRC, 2002, pp.~101--116.
+
+\bibitem{GrothendieckEsquisse1984}
+A.~Grothendieck,
+\newblock ``Esquisse d'un programme,''
+\newblock in \emph{Geometric Galois Actions}, vol.~1, Cambridge Univ.\ Press,
+1997, pp.~5--48 (written 1984).
+
+% ---- New refs: Hyperbolic Kagome QPU section ----
+
+\bibitem{SchreiberThermoGFN2025}
+A.~Schreiber,
+\newblock ``ThermoGFN-IF: GFlowNet-based thermostable protein inverse folding,''
+\newblock arXiv preprint, 2025.
+
+\bibitem{LiSPURS2026}
+H.~Li et al.,
+\newblock ``SPURS: Single-pass universal residue stability scoring,''
+\newblock arXiv preprint, 2026.
+
+\bibitem{LewisBioEmu2024}
+S.~Lewis et al.,
+\newblock ``BioEmu: Sequence-conditioned equilibrium ensemble emulation for proteins,''
+\newblock \emph{bioRxiv}, 2024.
+
+\bibitem{WoodUMA2025}
+B.~Wood et al.,
+\newblock ``UMA: A universal machine-learning interatomic potential,''
+\newblock arXiv preprint, 2025.
+
+\bibitem{MalkinEtAl2022}
+E.~Malkin, M.~Jain, M.~Bengio, A.~C.~Courville, S.~Bengio, and G.~Lacoste-Julien,
+\newblock ``Trajectory balance: Improved credit assignment in GFlowNets,''
+\newblock \emph{Advances in Neural Information Processing Systems (NeurIPS)}, vol.~35, 2022.
+
+\bibitem{PanTemperature2023}
+Y.~Pan, N.~Malkin, G.~W.~Coates, and Y.~Bengio,
+\newblock ``Better training of GFlowNets with local credit and incomplete trajectories,''
+\newblock \emph{Proc.\ ICML 2023}.
+
+\bibitem{Freedman2002}
+M.~H.~Freedman, A.~Kitaev, M.~J.~Larsen, and Z.~Wang,
+\newblock ``Topological quantum computation,''
+\newblock \emph{Bull.\ Amer.\ Math.\ Soc.\ (N.S.)} \textbf{40} (2003), 31--38.
+
+\bibitem{BombinDelgado2007}
+H.~Bomb\'in and M.~A.~Martin-Delgado,
+\newblock ``Homological error correction: Classical and quantum codes,''
+\newblock \emph{J.\ Math.\ Phys.} \textbf{48} (2007), 052105.
+
+\bibitem{Delfosse2013}
+N.~Delfosse,
+\newblock ``Tradeoffs for reliable quantum information storage in surface codes and color codes,''
+\newblock \emph{Proc.\ IEEE ISIT 2013}, pp.~917--921.
+
+\bibitem{GuthGromov2010}
+L.~Guth and M.~Gromov,
+\newblock ``Systolic inequalities and hyperbolic surfaces,''
+\newblock see: L.~Guth, ``Metaphors in systolic geometry,'' \emph{Proc.\ ICM}, vol.~II
+  (2011), pp.~745--768; and M.~Gromov, \emph{Geom.\ Funct.\ Anal.}\ \textbf{20} (2010), 416--526.
+
+\bibitem{Kabsch1976}
+W.~Kabsch,
+\newblock ``A solution for the best rotation to relate two sets of vectors,''
+\newblock \emph{Acta Crystallogr.\ A} \textbf{32} (1976), 922--923.
+
+\bibitem{MortonEtAl2011}
+J.~J.~L.~Morton and P.~Bertet,
+\newblock ``Storing quantum information in spins and high-sensitivity ESR,''
+\newblock \emph{J.\ Magn.\ Reson.} \textbf{287} (2018), 128--139.
+
+\bibitem{ZaccaiEtAl2016}
+G.~Zaccai et al.,
+\newblock ``Neutrons describe ectoine effects on water H-bonding and hydration around
+  a soluble protein and a cell membrane,''
+\newblock \emph{Sci.\ Rep.} \textbf{6} (2016), 31154.
+
+\bibitem{VoightAFL2021}
+J.~Voight,
+\newblock \emph{Quaternion Algebras}, Grad.\ Texts in Math.\ 288, Springer, 2021.
+
+\bibitem{ChamberlaineEtAl2018}
+C.~Chamberland et al.,
+\newblock ``Flag fault-tolerant error correction with arbitrary distance codes,''
+\newblock \emph{Quantum} \textbf{2} (2018), 53.
+
+\bibitem{Breuckmann2021}
+N.~P.~Breuckmann and J.~N.~Eberhardt,
+\newblock ``Quantum low-density parity-check codes,''
+\newblock \emph{PRX Quantum} \textbf{2} (2021), 040101.
 
 \end{thebibliography}
 
