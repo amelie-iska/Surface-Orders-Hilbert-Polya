@@ -9,7 +9,7 @@ A full computational implementation of the ${7,3}$-hyperbolic kagome lattice via
 
 ## Description of Biologics-based QPU Design Methodology (Codebase Coming Soon)
 
-1. Run RFdiffusion3 motif scaffolding on [1TJB](https://www.rcsb.org/structure/1TJB) as the [${7,3}$-hyperbolic kagome lattice](https://arxiv.org/abs/1802.09549) qubits, with several hundred to several thousand qubits
+1. Run RFdiffusion3 motif scaffolding on [1TJB](https://www.rcsb.org/structure/1TJB) as the [\({7,3}\)-hyperbolic kagome lattice](https://arxiv.org/abs/1802.09549) qubits, with several hundred to several thousand qubits
 2. Run Fine-tune LigandMPNN model [ThermoGFN-IF](https://github.com/amelie-iska/ThermoGFN-IF) (once trained) to design *de novo* sequences for the inter-qubit residue spans composing the scaffold in order to increase absolute thermostability (ΔG) and computational operating temperatures to over 50 K, making NMR-based quantum computing viable
 3. Validate structure with RosettaFold3 and [Boltz-2](https://github.com/amelie-iska/boltz) (for binding affinity predictions)
 4. Run the quantum accurate MLIP [UMA](https://github.com/amelie-iska/fairchem) to validate QM/MM molecular dynamics trajectories
